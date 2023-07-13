@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://geeknees.github.io/quarto/about.html</loc>
-    <lastmod>2023-07-13T09:35:55.966Z</lastmod>
+    <lastmod>2023-07-13T10:35:13.161Z</lastmod>
   </url>
   <url>
-    <loc>https://geeknees.github.io/quarto/posts/welcome/index.html</loc>
-    <lastmod>2023-07-13T09:35:55.359Z</lastmod>
+    <loc>https://geeknees.github.io/quarto/posts/introductionGen/index.html</loc>
+    <lastmod>2023-07-13T10:35:12.416Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/post-with-code/index.html</loc>
-    <lastmod>2023-07-13T09:35:55.074Z</lastmod>
+    <lastmod>2023-07-13T10:34:35.717Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/welcome/index.html</loc>
+    <lastmod>2023-07-13T10:34:35.989Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/index.html</loc>
-    <lastmod>2023-07-13T09:35:55.722Z</lastmod>
+    <lastmod>2023-07-13T10:35:12.883Z</lastmod>
   </url>
 </urlset>
