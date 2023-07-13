@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "geeknees",
     "section": "",
-    "text": "About this blog"
+    "text": "hey 👋"
   },
   {
     "objectID": "posts/introductionGen/index.html",
@@ -12,13 +12,6 @@
     "title": "Tutorial: Introduction to Modeling in Gen",
     "section": "",
     "text": "using Gen\n\n\nusing Plots\n\n\n@gen function line_model(xs::Vector{Float64})\n    # We begin by sampling a slope and intercept for the line.\n    # Before we have seen the data, we don't know the values of\n    # these parameters, so we treat them as random choices. The\n    # distributions they are drawn from represent our prior beliefs\n    # about the parameters: in this case, that neither the slope nor the\n    # intercept will be more than a couple points away from 0.\n    slope = ({:slope} ~ normal(0, 1))\n    intercept = ({:intercept} ~ normal(0, 2))\n    \n    # We define a function to compute y for a given x\n    function y(x)\n        return slope * x + intercept\n    end\n\n    # Given the slope and intercept, we can sample y coordinates\n    # for each of the x coordinates in our input vector.\n    for (i, x) in enumerate(xs)\n        # Note that we name each random choice in this loop\n        # slightly differently: the first time through,\n        # the name (:y, 1) will be used, then (:y, 2) for\n        # the second point, and so on.\n        ({(:y, i)} ~ normal(y(x), 0.1))\n    end\n\n    # Most of the time, we don't care about the return\n    # value of a model, only the random choices it makes.\n    # It can sometimems be useful to return something\n    # meaningful, however; here, we return the function `y`.\n    return y\nend;\n\n\nxs = [-5., -4., -3., -2., -1., 0., 1., 2., 3., 4., 5.];\n\n\ny = line_model(xs)\n\ny (generic function with 1 method)\n\n\n\ntrace = Gen.simulate(line_model, (xs,));\n\n\nGen.get_args(trace)\n\n([-5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0],)\n\n\n\nfunction render_trace(trace; show_data=true)\n    \n    # Pull out xs from the trace\n    xs, = get_args(trace)\n    \n    xmin = minimum(xs)\n    xmax = maximum(xs)\n\n    # Pull out the return value, useful for plotting\n    y = get_retval(trace)\n    \n    # Draw the line\n    test_xs = collect(range(-5, stop=5, length=1000))\n    fig = plot(test_xs, map(y, test_xs), color=\"black\", alpha=0.5, label=nothing,\n                xlim=(xmin, xmax), ylim=(xmin, xmax))\n\n    if show_data\n        ys = [trace[(:y, i)] for i=1:length(xs)]\n        \n        # Plot the data set\n        scatter!(xs, ys, c=\"black\", label=nothing)\n    end\n    \n    return fig\nend;\n\n\nrender_trace(trace)\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction grid(renderer::Function, traces)\n    Plots.plot(map(renderer, traces)...)\nend;\n\n\ntraces = [Gen.simulate(line_model, (xs,)) for _=1:12]\ngrid(render_trace, traces)"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -32,6 +25,6 @@
     "href": "index.html",
     "title": "quarto-blog",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nTutorial: Introduction to Modeling in Gen\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\ngeeknees\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 10, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Tutorial: Introduction to Modeling in Gen\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\ngeeknees\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 10, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   }
 ]
