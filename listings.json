@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/daru_with_quarto/index.html",
       "/posts/introductionGen/index.html",
       "/posts/welcome/index.html"
     ]

@@ -21,10 +21,17 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
+    "objectID": "posts/daru_with_quarto/index.html",
+    "href": "posts/daru_with_quarto/index.html",
+    "title": "Using daru with Quarto",
+    "section": "",
+    "text": "require 'daru'\n\n\n\n\ntrue\n\n\n\ndf = Daru::DataFrame.new({\n    a: Array.new(100) {|i| i},\n    b: 100.times.map{rand}\n  })\n  df.plot type: :scatter, x: :a, y: :b\n\n\n\n\n\n\ndf = Daru::DataFrame.new({\n    :temperature =&gt; [30.4, 23.5, 44.5, 20.3, 34, 24, 31.45, 28.34, 37, 24],\n    :sales       =&gt; [350, 150, 500, 200, 480, 250, 330, 400, 420, 560],\n    :city        =&gt; ['Pune', 'Delhi']*5,\n    :staff       =&gt; [15,20]*5\n    })\n  df\n\n Daru::DataFrame(10x4) \n\n\n\n\n\ntemperature\nsales\ncity\nstaff\n\n\n\n\n0\n30.4\n350\nPune\n15\n\n\n1\n23.5\n150\nDelhi\n20\n\n\n2\n44.5\n500\nPune\n15\n\n\n3\n20.3\n200\nDelhi\n20\n\n\n4\n34\n480\nPune\n15\n\n\n5\n24\n250\nDelhi\n20\n\n\n6\n31.45\n330\nPune\n15\n\n\n7\n28.34\n400\nDelhi\n20\n\n\n8\n37\n420\nPune\n15\n\n\n9\n24\n560\nDelhi\n20\n\n\n\n\n\n\ndf.plot(type: :scatter, x: :temperature, y: :sales) do |plot, diagram|\n    plot.x_label \"Temperature\"\n    plot.y_label \"Sales\"\n    plot.yrange [100, 600]\n    plot.xrange [15, 50]\n    diagram.tooltip_contents([:city, :staff])\n    diagram.color(Nyaplot::Colors.qual) # set the color scheme for this diagram. See Nyaplot::Colors for more info.\n    diagram.fill_by(:city) # Change color of each point WRT to the city that it belongs to.\n    diagram.shape_by(:city) # Shape each point WRT to the city that it belongs to.\n  end"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "quarto-blog",
     "section": "",
-    "text": "Tutorial: Introduction to Modeling in Gen\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\ngeeknees\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 10, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Using daru with Quarto\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 14, 2023\n\n\ngeeknees\n\n\n\n\n\n\n  \n\n\n\n\nTutorial: Introduction to Modeling in Gen\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\ngeeknees\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 10, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   }
 ]
