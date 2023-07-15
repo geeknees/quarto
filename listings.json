@@ -2,9 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/daru_with_quarto/index.html",
-      "/posts/introductionGen/index.html",
-      "/posts/welcome/index.html"
+      "/posts/2023-07-14introductionDaru/index.html",
+      "/posts/2023-07-13introductionGen/index.html"
     ]
   }
 ]

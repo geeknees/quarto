@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="geeknees">
+<meta name="dcterms.date" content="2023-07-13">
+
+<title>Quarto - Introduction to Daru</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quarto</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">geeknees</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/geeknees/quarto" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/_geeknees" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Introduction to Daru</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">ruby</div>
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>geeknees </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 13, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'daru'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/javascript">
+if(window['d3'] === undefined ||
+   window['Nyaplot'] === undefined){
+    var path = {"d3":"https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min","downloadable":"http://cdn.rawgit.com/domitry/d3-downloadable/master/d3-downloadable"};
+
+
+
+    var shim = {"d3":{"exports":"d3"},"downloadable":{"exports":"downloadable"}};
+
+    require.config({paths: path, shim:shim});
+
+
+require(['d3'], function(d3){window['d3']=d3;console.log('finished loading d3');require(['downloadable'], function(downloadable){window['downloadable']=downloadable;console.log('finished loading downloadable');
+
+    var script = d3.select("head")
+        .append("script")
+        .attr("src", "http://cdn.rawgit.com/domitry/Nyaplotjs/master/release/nyaplot.js")
+        .attr("async", true);
+
+    script[0][0].onload = script[0][0].onreadystatechange = function(){
+
+
+        var event = document.createEvent("HTMLEvents");
+        event.initEvent("load_nyaplot",false,false);
+        window.dispatchEvent(event);
+        console.log('Finished loading Nyaplotjs');
+
+    };
+
+
+});});
+}
+
+</script>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>true</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="kw">=</span> <span class="dt">Daru</span><span class="kw">::</span><span class="dt">DataFrame</span><span class="at">.new</span>(<span class="kw">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="wa">a: </span><span class="dt">Array</span><span class="at">.new</span>(<span class="dv">100</span>) <span class="kw">{|</span>i<span class="kw">|</span> i<span class="kw">}</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="wa">b: </span><span class="dv">100</span><span class="at">.times.map</span><span class="kw">{</span><span class="fu">rand</span><span class="kw">}</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  df<span class="at">.plot</span> <span class="wa">type: :scatter</span>, <span class="wa">x: :a</span>, <span class="wa">y: :b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div id="vis-7b4702b5-ec72-4b66-b97c-34ecf99f0624"></div>
+<script>
+(function(){
+    var render = function(){
+        var model = {"panes":[{"diagrams":[{"type":"scatter","options":{"x":"a","y":"b"},"data":"897c1274-883b-444b-b32c-3c450f61f924"}],"options":{"zoom":true,"width":700,"xrange":[0,99],"yrange":[0.0054311617960630665,0.9961376394324081]}}],"data":{"897c1274-883b-444b-b32c-3c450f61f924":[{"a":0,"b":0.7353250148394036},{"a":1,"b":0.0373400099443959},{"a":2,"b":0.9961376394324081},{"a":3,"b":0.12380907630938776},{"a":4,"b":0.73261049349402},{"a":5,"b":0.13667530358900204},{"a":6,"b":0.3915140645598013},{"a":7,"b":0.60192579901519},{"a":8,"b":0.298033214301338},{"a":9,"b":0.505425312331552},{"a":10,"b":0.7564277750387213},{"a":11,"b":0.6403235758609834},{"a":12,"b":0.6213013127570237},{"a":13,"b":0.3183851998088376},{"a":14,"b":0.7658456888747588},{"a":15,"b":0.03317414337745628},{"a":16,"b":0.6991999721810678},{"a":17,"b":0.5675614786021633},{"a":18,"b":0.7223024065531737},{"a":19,"b":0.3111577170804054},{"a":20,"b":0.2854788008454069},{"a":21,"b":0.6138133870281175},{"a":22,"b":0.6819134025665928},{"a":23,"b":0.2794136130413082},{"a":24,"b":0.7280940614251767},{"a":25,"b":0.27711066132751594},{"a":26,"b":0.7832595502955906},{"a":27,"b":0.37619466339744867},{"a":28,"b":0.19305182262024245},{"a":29,"b":0.448487363913353},{"a":30,"b":0.7273858777516791},{"a":31,"b":0.5510604591951836},{"a":32,"b":0.46190416427101444},{"a":33,"b":0.7245739266252075},{"a":34,"b":0.7758600281951722},{"a":35,"b":0.336781722789366},{"a":36,"b":0.21707962505765055},{"a":37,"b":0.9620256669815594},{"a":38,"b":0.7965109643137229},{"a":39,"b":0.07145090555685485},{"a":40,"b":0.7072481493471691},{"a":41,"b":0.6866704925945671},{"a":42,"b":0.2214218599710247},{"a":43,"b":0.37798992194261627},{"a":44,"b":0.42975107379699684},{"a":45,"b":0.9518892340201375},{"a":46,"b":0.6148922881118289},{"a":47,"b":0.6747515539405939},{"a":48,"b":0.548743583861201},{"a":49,"b":0.0054311617960630665},{"a":50,"b":0.33553076504669144},{"a":51,"b":0.15395227993970018},{"a":52,"b":0.6728551980464675},{"a":53,"b":0.9274356239533157},{"a":54,"b":0.7472765766561065},{"a":55,"b":0.38248318095552913},{"a":56,"b":0.9591535923881481},{"a":57,"b":0.06268198694550797},{"a":58,"b":0.9167761918258498},{"a":59,"b":0.3143387386521568},{"a":60,"b":0.18348696588450586},{"a":61,"b":0.21529776063768835},{"a":62,"b":0.3905598453586515},{"a":63,"b":0.21779891399664808},{"a":64,"b":0.03725650381666967},{"a":65,"b":0.43315721105781446},{"a":66,"b":0.1751874633916598},{"a":67,"b":0.05069623521232047},{"a":68,"b":0.6969111678152324},{"a":69,"b":0.08059109730135039},{"a":70,"b":0.07265108248096963},{"a":71,"b":0.18938158816004158},{"a":72,"b":0.9843442107995847},{"a":73,"b":0.7668512550035114},{"a":74,"b":0.74409535807393},{"a":75,"b":0.365659758131914},{"a":76,"b":0.1167229663239101},{"a":77,"b":0.4390569550527279},{"a":78,"b":0.4926539078666953},{"a":79,"b":0.5444888815198613},{"a":80,"b":0.8016786230571107},{"a":81,"b":0.4379861014828309},{"a":82,"b":0.40796797708877264},{"a":83,"b":0.7835160143990735},{"a":84,"b":0.16010681524439652},{"a":85,"b":0.5179042401287601},{"a":86,"b":0.6944398723033844},{"a":87,"b":0.47842405543559785},{"a":88,"b":0.8367795669808826},{"a":89,"b":0.3906154299178012},{"a":90,"b":0.11407869448467234},{"a":91,"b":0.24800560777462544},{"a":92,"b":0.343268958332952},{"a":93,"b":0.9408159308887963},{"a":94,"b":0.19253956108814796},{"a":95,"b":0.36121780950817073},{"a":96,"b":0.9340407389499691},{"a":97,"b":0.47802519676354016},{"a":98,"b":0.4445331303716843},{"a":99,"b":0.7260795086027233}]},"extension":[]}
+        var id_name = '#vis-7b4702b5-ec72-4b66-b97c-34ecf99f0624';
+        Nyaplot.core.parse(model, id_name);
+
+        require(['downloadable'], function(downloadable){
+          var svg = d3.select(id_name).select("svg");
+      if(!svg.empty())
+        svg.call(downloadable().filename('fig'));
+    });
+    };
+    if(window['Nyaplot']==undefined){
+        window.addEventListener('load_nyaplot', render, false);
+    return;
+    } else {
+       render();
+    }
+})();
+</script>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="kw">=</span> <span class="dt">Daru</span><span class="kw">::</span><span class="dt">DataFrame</span><span class="at">.new</span>(<span class="kw">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="wa">:temperature</span> <span class="kw">=&gt;</span> <span class="kw">[</span><span class="fl">30.4</span>, <span class="fl">23.5</span>, <span class="fl">44.5</span>, <span class="fl">20.3</span>, <span class="dv">34</span>, <span class="dv">24</span>, <span class="fl">31.45</span>, <span class="fl">28.34</span>, <span class="dv">37</span>, <span class="dv">24</span><span class="kw">]</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="wa">:sales</span>       <span class="kw">=&gt;</span> <span class="kw">[</span><span class="dv">350</span>, <span class="dv">150</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">480</span>, <span class="dv">250</span>, <span class="dv">330</span>, <span class="dv">400</span>, <span class="dv">420</span>, <span class="dv">560</span><span class="kw">]</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="wa">:city</span>        <span class="kw">=&gt;</span> <span class="kw">[</span><span class="vs">'Pune'</span>, <span class="vs">'Delhi'</span><span class="kw">]*</span><span class="dv">5</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="wa">:staff</span>       <span class="kw">=&gt;</span> <span class="kw">[</span><span class="dv">15</span>,<span class="dv">20</span><span class="kw">]*</span><span class="dv">5</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">}</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<b> Daru::DataFrame(10x4) </b>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">temperature</th>
+<th data-quarto-table-cell-role="th">sales</th>
+<th data-quarto-table-cell-role="th">city</th>
+<th data-quarto-table-cell-role="th">staff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>30.4</td>
+<td>350</td>
+<td>Pune</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>23.5</td>
+<td>150</td>
+<td>Delhi</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>44.5</td>
+<td>500</td>
+<td>Pune</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>20.3</td>
+<td>200</td>
+<td>Delhi</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>34</td>
+<td>480</td>
+<td>Pune</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>24</td>
+<td>250</td>
+<td>Delhi</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>31.45</td>
+<td>330</td>
+<td>Pune</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>28.34</td>
+<td>400</td>
+<td>Delhi</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>37</td>
+<td>420</td>
+<td>Pune</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>24</td>
+<td>560</td>
+<td>Delhi</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df<span class="at">.plot</span>(<span class="wa">type: :scatter</span>, <span class="wa">x: :temperature</span>, <span class="wa">y: :sales</span>) <span class="cf">do</span> <span class="kw">|</span>plot, diagram<span class="kw">|</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    plot<span class="at">.x_label</span> <span class="st">"Temperature"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    plot<span class="at">.y_label</span> <span class="st">"Sales"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    plot<span class="at">.yrange</span> <span class="kw">[</span><span class="dv">100</span>, <span class="dv">600</span><span class="kw">]</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    plot<span class="at">.xrange</span> <span class="kw">[</span><span class="dv">15</span>, <span class="dv">50</span><span class="kw">]</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    diagram<span class="at">.tooltip_contents</span>(<span class="kw">[</span><span class="wa">:city</span>, <span class="wa">:staff</span><span class="kw">]</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    diagram<span class="at">.color</span>(<span class="dt">Nyaplot</span><span class="kw">::</span><span class="dt">Colors</span><span class="at">.qual</span>) <span class="co"># set the color scheme for this diagram. See Nyaplot::Colors for more info.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    diagram<span class="at">.fill_by</span>(<span class="wa">:city</span>) <span class="co"># Change color of each point WRT to the city that it belongs to.</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    diagram<span class="at">.shape_by</span>(<span class="wa">:city</span>) <span class="co"># Shape each point WRT to the city that it belongs to.</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="vis-26435a06-d2d9-415a-abe7-bb6566ed6bf6"></div>
+<script>
+(function(){
+    var render = function(){
+        var model = {"panes":[{"diagrams":[{"type":"scatter","options":{"x":"temperature","y":"sales","tooltip_contents":["city","staff"],"color":["rgb(251,180,174)","rgb(179,205,227)","rgb(204,235,197)","rgb(222,203,228)","rgb(254,217,166)","rgb(255,255,204)","rgb(229,216,189)","rgb(253,218,236)","rgb(242,242,242)"],"fill_by":"city","shape_by":"city"},"data":"d3f5b5cc-144b-4dce-a3b9-32f085a18edd"}],"options":{"x_label":"Temperature","y_label":"Sales","yrange":[100,600],"xrange":[15,50],"zoom":true,"width":700}}],"data":{"d3f5b5cc-144b-4dce-a3b9-32f085a18edd":[{"temperature":30.4,"sales":350,"city":"Pune","staff":15},{"temperature":23.5,"sales":150,"city":"Delhi","staff":20},{"temperature":44.5,"sales":500,"city":"Pune","staff":15},{"temperature":20.3,"sales":200,"city":"Delhi","staff":20},{"temperature":34,"sales":480,"city":"Pune","staff":15},{"temperature":24,"sales":250,"city":"Delhi","staff":20},{"temperature":31.45,"sales":330,"city":"Pune","staff":15},{"temperature":28.34,"sales":400,"city":"Delhi","staff":20},{"temperature":37,"sales":420,"city":"Pune","staff":15},{"temperature":24,"sales":560,"city":"Delhi","staff":20}]},"extension":[]}
+        var id_name = '#vis-26435a06-d2d9-415a-abe7-bb6566ed6bf6';
+        Nyaplot.core.parse(model, id_name);
+
+        require(['downloadable'], function(downloadable){
+          var svg = d3.select(id_name).select("svg");
+      if(!svg.empty())
+        svg.call(downloadable().filename('fig'));
+    });
+    };
+    if(window['Nyaplot']==undefined){
+        window.addEventListener('load_nyaplot', render, false);
+    return;
+    } else {
+       render();
+    }
+})();
+</script>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
