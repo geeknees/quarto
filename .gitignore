@@ -2,3 +2,7 @@
 /.quarto/
 /_site/
 /_freeze/
+
+/.bundle
+/vendor/bundle
+/_vendor/bundle
