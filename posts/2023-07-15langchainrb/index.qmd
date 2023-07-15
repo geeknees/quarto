@@ -1,0 +1,23 @@
+---
+jupyter: ruby
+title: "langchainrb"
+author: "geeknees"
+date: "2023-07-15"
+categories: [ruby, code, analysis]
+---
+```{ruby}
+p ENV['RUBYINSPECT']
+```
+
+```{ruby}
+require 'langchain'
+
+openai = Langchain::LLM::OpenAI.new(api_key: ENV["OPENAI_API_KEY"])
+
+chat = Langchain::Conversation.new(llm: openai)
+chat.set_context("You are a chatbot from the future")
+
+puts "Welcome to the chatbot from the future!"
+
+puts chat.message('hey there!')
+```
