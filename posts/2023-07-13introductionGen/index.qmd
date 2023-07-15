@@ -1,9 +1,9 @@
 ---
 jupyter: julia-1.9
-title: "Tutorial: Introduction to Modeling in Gen"
+title: "Introduction to Modeling in Gen"
 author: "geeknees"
 date: "2023-07-13"
-categories: [news, code, analysis]
+categories: [julia, probcomp, code, analysis]
 ---
 
 ```{julia}
@@ -24,7 +24,7 @@ using Plots
     # intercept will be more than a couple points away from 0.
     slope = ({:slope} ~ normal(0, 1))
     intercept = ({:intercept} ~ normal(0, 2))
-    
+
     # We define a function to compute y for a given x
     function y(x)
         return slope * x + intercept
@@ -66,16 +66,16 @@ Gen.get_args(trace)
 
 ```{julia}
 function render_trace(trace; show_data=true)
-    
+
     # Pull out xs from the trace
     xs, = get_args(trace)
-    
+
     xmin = minimum(xs)
     xmax = maximum(xs)
 
     # Pull out the return value, useful for plotting
     y = get_retval(trace)
-    
+
     # Draw the line
     test_xs = collect(range(-5, stop=5, length=1000))
     fig = plot(test_xs, map(y, test_xs), color="black", alpha=0.5, label=nothing,
@@ -83,11 +83,11 @@ function render_trace(trace; show_data=true)
 
     if show_data
         ys = [trace[(:y, i)] for i=1:length(xs)]
-        
+
         # Plot the data set
         scatter!(xs, ys, c="black", label=nothing)
     end
-    
+
     return fig
 end;
 ```
