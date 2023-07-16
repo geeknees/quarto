@@ -9,7 +9,7 @@
 <meta name="author" content="geeknees">
 <meta name="dcterms.date" content="2023-07-13">
 
-<title>Quarto - Daru</title>
+<title>Quarto - Boxcars</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,9 +95,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -145,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Daru</h1>
+      <h1 class="title">Boxcars</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">ruby</div>
                 <div class="quarto-category">code</div>
@@ -186,208 +183,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'daru'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<script type="application/javascript">
-if(window['d3'] === undefined ||
-   window['Nyaplot'] === undefined){
-    var path = {"d3":"https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min","downloadable":"http://cdn.rawgit.com/domitry/d3-downloadable/master/d3-downloadable"};
-
-
-
-    var shim = {"d3":{"exports":"d3"},"downloadable":{"exports":"downloadable"}};
-
-    require.config({paths: path, shim:shim});
-
-
-require(['d3'], function(d3){window['d3']=d3;console.log('finished loading d3');require(['downloadable'], function(downloadable){window['downloadable']=downloadable;console.log('finished loading downloadable');
-
-    var script = d3.select("head")
-        .append("script")
-        .attr("src", "http://cdn.rawgit.com/domitry/Nyaplotjs/master/release/nyaplot.js")
-        .attr("async", true);
-
-    script[0][0].onload = script[0][0].onreadystatechange = function(){
-
-
-        var event = document.createEvent("HTMLEvents");
-        event.initEvent("load_nyaplot",false,false);
-        window.dispatchEvent(event);
-        console.log('Finished loading Nyaplotjs');
-
-    };
-
-
-});});
-}
-
-</script>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'boxcars'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>true</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="kw">=</span> <span class="dt">Daru</span><span class="kw">::</span><span class="dt">DataFrame</span><span class="at">.new</span>(<span class="kw">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="wa">a: </span><span class="dt">Array</span><span class="at">.new</span>(<span class="dv">100</span>) <span class="kw">{|</span>i<span class="kw">|</span> i<span class="kw">}</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="wa">b: </span><span class="dv">100</span><span class="at">.times.map</span><span class="kw">{</span><span class="fu">rand</span><span class="kw">}</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  df<span class="at">.plot</span> <span class="wa">type: :scatter</span>, <span class="wa">x: :a</span>, <span class="wa">y: :b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># showcase Google Serp search</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>s <span class="kw">=</span> <span class="dt">Boxcars</span><span class="kw">::</span><span class="dt">GoogleSearch</span><span class="at">.new</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>s<span class="at">.run</span> <span class="st">"what temperature is it in Phoenix?"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Found SERP answer at [:organic_results, 0, :snippet]
+Question: what temperature is it in Phoenix?
+Answer: {:snippet=&gt;"Sun 16 | Day ... Mostly sunny. Near record high temperatures. High 113F. Winds W at 10 to 15 mph. Humidity21%.", :url=&gt;"https://weather.com/weather/tenday/l/Phoenix+AZ?canonicalCityId=2e5ae66bd2b43b15b0bfc4f6a3628b6e13228e32d0a57fb643144293f78ca339"}</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<div id="vis-52db8d4d-7c3d-4526-892d-2a1801cfe298"></div>
-<script>
-(function(){
-    var render = function(){
-        var model = {"panes":[{"diagrams":[{"type":"scatter","options":{"x":"a","y":"b"},"data":"a8989141-8ea8-4679-8259-944f7b507c64"}],"options":{"zoom":true,"width":700,"xrange":[0,99],"yrange":[0.01620136433112329,0.995988783409757]}}],"data":{"a8989141-8ea8-4679-8259-944f7b507c64":[{"a":0,"b":0.06631011487463345},{"a":1,"b":0.8703660513546161},{"a":2,"b":0.3556366494766334},{"a":3,"b":0.4071184103937022},{"a":4,"b":0.7962542449614322},{"a":5,"b":0.8498787626524124},{"a":6,"b":0.3993039882923267},{"a":7,"b":0.43119871174673297},{"a":8,"b":0.87693064958812},{"a":9,"b":0.5413542132117001},{"a":10,"b":0.995988783409757},{"a":11,"b":0.6049935040929207},{"a":12,"b":0.3791098171753977},{"a":13,"b":0.7509825324416461},{"a":14,"b":0.5525408661413063},{"a":15,"b":0.16042531264421755},{"a":16,"b":0.39489096165803217},{"a":17,"b":0.41906320077193193},{"a":18,"b":0.6455327907039898},{"a":19,"b":0.5974946270875704},{"a":20,"b":0.20971041509920152},{"a":21,"b":0.172275322299955},{"a":22,"b":0.5889015821786474},{"a":23,"b":0.01620136433112329},{"a":24,"b":0.3337304339673012},{"a":25,"b":0.24525719852255423},{"a":26,"b":0.791148294437454},{"a":27,"b":0.517570055238015},{"a":28,"b":0.7438492039641464},{"a":29,"b":0.2716761949563733},{"a":30,"b":0.38716258114306656},{"a":31,"b":0.9578374641593781},{"a":32,"b":0.7005202414921734},{"a":33,"b":0.9913051719746567},{"a":34,"b":0.9443317414836215},{"a":35,"b":0.23522346325128052},{"a":36,"b":0.9872203152468202},{"a":37,"b":0.07524535009070177},{"a":38,"b":0.3883344562121349},{"a":39,"b":0.3145471749115788},{"a":40,"b":0.5374735537596005},{"a":41,"b":0.48200377036848363},{"a":42,"b":0.36009400805595315},{"a":43,"b":0.5149689203220156},{"a":44,"b":0.31685159953091524},{"a":45,"b":0.7860179133000336},{"a":46,"b":0.09512997850628835},{"a":47,"b":0.7594794552601175},{"a":48,"b":0.4739017410141946},{"a":49,"b":0.18355766479183921},{"a":50,"b":0.914451170045586},{"a":51,"b":0.1137544050113799},{"a":52,"b":0.8727072356721935},{"a":53,"b":0.13321580596706561},{"a":54,"b":0.19868008359007916},{"a":55,"b":0.8144795607836687},{"a":56,"b":0.25480502765786717},{"a":57,"b":0.6101318712627611},{"a":58,"b":0.4841059578555609},{"a":59,"b":0.7624485727964044},{"a":60,"b":0.4044216086144973},{"a":61,"b":0.10016131087275693},{"a":62,"b":0.9720704296805673},{"a":63,"b":0.899152657011643},{"a":64,"b":0.3985935188973112},{"a":65,"b":0.27101920760231213},{"a":66,"b":0.9210537734266981},{"a":67,"b":0.6456418686899377},{"a":68,"b":0.8662556112606208},{"a":69,"b":0.5083170017040564},{"a":70,"b":0.5695569616359317},{"a":71,"b":0.09261849831050095},{"a":72,"b":0.2673247402578026},{"a":73,"b":0.8756786386939913},{"a":74,"b":0.7877506729563603},{"a":75,"b":0.34658290339492226},{"a":76,"b":0.3553275940327496},{"a":77,"b":0.7092287440717099},{"a":78,"b":0.9043568535499065},{"a":79,"b":0.1227204853773336},{"a":80,"b":0.892055473851601},{"a":81,"b":0.18374549293352993},{"a":82,"b":0.034122491135108235},{"a":83,"b":0.15888676312251648},{"a":84,"b":0.6681470132271645},{"a":85,"b":0.4150837050703571},{"a":86,"b":0.6134991024315085},{"a":87,"b":0.575841512893812},{"a":88,"b":0.7811025125071194},{"a":89,"b":0.17772919069160342},{"a":90,"b":0.9287302190222253},{"a":91,"b":0.20256995853070636},{"a":92,"b":0.41620374850299346},{"a":93,"b":0.7638575629318501},{"a":94,"b":0.2846464357428491},{"a":95,"b":0.23388096255465063},{"a":96,"b":0.16423707222321327},{"a":97,"b":0.33910552482209466},{"a":98,"b":0.8217278576200738},{"a":99,"b":0.5462567449364129}]},"extension":[]}
-        var id_name = '#vis-52db8d4d-7c3d-4526-892d-2a1801cfe298';
-        Nyaplot.core.parse(model, id_name);
-
-        require(['downloadable'], function(downloadable){
-          var svg = d3.select(id_name).select("svg");
-      if(!svg.empty())
-        svg.call(downloadable().filename('fig'));
-    });
-    };
-    if(window['Nyaplot']==undefined){
-        window.addEventListener('load_nyaplot', render, false);
-    return;
-    } else {
-       render();
-    }
-})();
-</script>
+<pre><code>{:snippet=&gt;"Sun 16 | Day ... Mostly sunny. Near record high temperatures. High 113F. Winds W at 10 to 15 mph. Humidity21%.", :url=&gt;"https://weather.com/weather/tenday/l/Phoenix+AZ?canonicalCityId=2e5ae66bd2b43b15b0bfc4f6a3628b6e13228e32d0a57fb643144293f78ca339"}</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="kw">=</span> <span class="dt">Daru</span><span class="kw">::</span><span class="dt">DataFrame</span><span class="at">.new</span>(<span class="kw">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="wa">:temperature</span> <span class="kw">=&gt;</span> <span class="kw">[</span><span class="fl">30.4</span>, <span class="fl">23.5</span>, <span class="fl">44.5</span>, <span class="fl">20.3</span>, <span class="dv">34</span>, <span class="dv">24</span>, <span class="fl">31.45</span>, <span class="fl">28.34</span>, <span class="dv">37</span>, <span class="dv">24</span><span class="kw">]</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="wa">:sales</span>       <span class="kw">=&gt;</span> <span class="kw">[</span><span class="dv">350</span>, <span class="dv">150</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">480</span>, <span class="dv">250</span>, <span class="dv">330</span>, <span class="dv">400</span>, <span class="dv">420</span>, <span class="dv">560</span><span class="kw">]</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="wa">:city</span>        <span class="kw">=&gt;</span> <span class="kw">[</span><span class="vs">'Pune'</span>, <span class="vs">'Delhi'</span><span class="kw">]*</span><span class="dv">5</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="wa">:staff</span>       <span class="kw">=&gt;</span> <span class="kw">[</span><span class="dv">15</span>,<span class="dv">20</span><span class="kw">]*</span><span class="dv">5</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">}</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<b> Daru::DataFrame(10x4) </b>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'active_support'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>engine <span class="kw">=</span> <span class="dt">Boxcars</span><span class="kw">::</span><span class="dt">Openai</span><span class="at">.new</span>(<span class="wa">max_tokens: </span><span class="dv">256</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>calc <span class="kw">=</span> <span class="dt">Boxcars</span><span class="kw">::</span><span class="dt">Calculator</span><span class="at">.new</span>(<span class="wa">engine: </span>engine)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span> calc<span class="at">.run</span> <span class="st">"what is pi to the forth power divided by 22.1?"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&gt; Entering Calculator#run
+what is pi to the forth power divided by 22.1?
+RubyREPL: result = (Math::PI ** 4) / 22.1
+puts result
+Answer: 4.407651178009159
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">temperature</th>
-<th data-quarto-table-cell-role="th">sales</th>
-<th data-quarto-table-cell-role="th">city</th>
-<th data-quarto-table-cell-role="th">staff</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>30.4</td>
-<td>350</td>
-<td>Pune</td>
-<td>15</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>23.5</td>
-<td>150</td>
-<td>Delhi</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>44.5</td>
-<td>500</td>
-<td>Pune</td>
-<td>15</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>20.3</td>
-<td>200</td>
-<td>Delhi</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>34</td>
-<td>480</td>
-<td>Pune</td>
-<td>15</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>24</td>
-<td>250</td>
-<td>Delhi</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>31.45</td>
-<td>330</td>
-<td>Pune</td>
-<td>15</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>28.34</td>
-<td>400</td>
-<td>Delhi</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>37</td>
-<td>420</td>
-<td>Pune</td>
-<td>15</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>24</td>
-<td>560</td>
-<td>Delhi</td>
-<td>20</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df<span class="at">.plot</span>(<span class="wa">type: :scatter</span>, <span class="wa">x: :temperature</span>, <span class="wa">y: :sales</span>) <span class="cf">do</span> <span class="kw">|</span>plot, diagram<span class="kw">|</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    plot<span class="at">.x_label</span> <span class="st">"Temperature"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    plot<span class="at">.y_label</span> <span class="st">"Sales"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    plot<span class="at">.yrange</span> <span class="kw">[</span><span class="dv">100</span>, <span class="dv">600</span><span class="kw">]</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    plot<span class="at">.xrange</span> <span class="kw">[</span><span class="dv">15</span>, <span class="dv">50</span><span class="kw">]</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    diagram<span class="at">.tooltip_contents</span>(<span class="kw">[</span><span class="wa">:city</span>, <span class="wa">:staff</span><span class="kw">]</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    diagram<span class="at">.color</span>(<span class="dt">Nyaplot</span><span class="kw">::</span><span class="dt">Colors</span><span class="at">.qual</span>) <span class="co"># set the color scheme for this diagram. See Nyaplot::Colors for more info.</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    diagram<span class="at">.fill_by</span>(<span class="wa">:city</span>) <span class="co"># Change color of each point WRT to the city that it belongs to.</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    diagram<span class="at">.shape_by</span>(<span class="wa">:city</span>) <span class="co"># Shape each point WRT to the city that it belongs to.</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div id="vis-02ed22cb-5fe0-4f18-b652-e2809483324a"></div>
-<script>
-(function(){
-    var render = function(){
-        var model = {"panes":[{"diagrams":[{"type":"scatter","options":{"x":"temperature","y":"sales","tooltip_contents":["city","staff"],"color":["rgb(141,211,199)","rgb(255,255,179)","rgb(190,186,218)","rgb(251,128,114)","rgb(128,177,211)","rgb(253,180,98)","rgb(179,222,105)","rgb(252,205,229)","rgb(217,217,217)"],"fill_by":"city","shape_by":"city"},"data":"48914420-013c-49f4-b46c-b7819ac977f0"}],"options":{"x_label":"Temperature","y_label":"Sales","yrange":[100,600],"xrange":[15,50],"zoom":true,"width":700}}],"data":{"48914420-013c-49f4-b46c-b7819ac977f0":[{"temperature":30.4,"sales":350,"city":"Pune","staff":15},{"temperature":23.5,"sales":150,"city":"Delhi","staff":20},{"temperature":44.5,"sales":500,"city":"Pune","staff":15},{"temperature":20.3,"sales":200,"city":"Delhi","staff":20},{"temperature":34,"sales":480,"city":"Pune","staff":15},{"temperature":24,"sales":250,"city":"Delhi","staff":20},{"temperature":31.45,"sales":330,"city":"Pune","staff":15},{"temperature":28.34,"sales":400,"city":"Delhi","staff":20},{"temperature":37,"sales":420,"city":"Pune","staff":15},{"temperature":24,"sales":560,"city":"Delhi","staff":20}]},"extension":[]}
-        var id_name = '#vis-02ed22cb-5fe0-4f18-b652-e2809483324a';
-        Nyaplot.core.parse(model, id_name);
-
-        require(['downloadable'], function(downloadable){
-          var svg = d3.select(id_name).select("svg");
-      if(!svg.empty())
-        svg.call(downloadable().filename('fig'));
-    });
-    };
-    if(window['Nyaplot']==undefined){
-        window.addEventListener('load_nyaplot', render, false);
-    return;
-    } else {
-       render();
-    }
-})();
-</script>
+{"status":"ok","answer":"4.407651178009159","explanation":"Answer: 4.407651178009159","code":"result = (Math::PI ** 4) / 22.1\nputs result"}
+&lt; Exiting Calculator#run
+4.407651178009159</code></pre>
 </div>
 </div>
 
