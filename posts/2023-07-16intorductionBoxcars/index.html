@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="geeknees">
-<meta name="dcterms.date" content="2023-07-13">
+<meta name="dcterms.date" content="2023-07-16">
 
 <title>Quarto - Boxcars</title>
 <style>
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 13, 2023</p>
+        <p class="date">July 16, 2023</p>
       </div>
     </div>
     
@@ -184,8 +184,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'boxcars'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>true</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>false</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="2">
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Question: what temperature is it in Phoenix?
 Answer: {:snippet=&gt;"Sun 16 | Day ... Mostly sunny. Near record high temperatures. High 113F. Winds W at 10 to 15 mph. Humidity21%.", :url=&gt;"https://weather.com/weather/tenday/l/Phoenix+AZ?canonicalCityId=2e5ae66bd2b43b15b0bfc4f6a3628b6e13228e32d0a57fb643144293f78ca339"}</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>{:snippet=&gt;"Sun 16 | Day ... Mostly sunny. Near record high temperatures. High 113F. Winds W at 10 to 15 mph. Humidity21%.", :url=&gt;"https://weather.com/weather/tenday/l/Phoenix+AZ?canonicalCityId=2e5ae66bd2b43b15b0bfc4f6a3628b6e13228e32d0a57fb643144293f78ca339"}</code></pre>
 </div>
 </div>
@@ -210,11 +210,10 @@ Answer: {:snippet=&gt;"Sun 16 | Day ... Mostly sunny. Near record high temperatu
 <div class="cell-output cell-output-stdout">
 <pre><code>&gt; Entering Calculator#run
 what is pi to the forth power divided by 22.1?
-RubyREPL: result = (Math::PI ** 4) / 22.1
-puts result
+RubyREPL: puts (Math::PI**4 / 22.1)
 Answer: 4.407651178009159
 
-{"status":"ok","answer":"4.407651178009159","explanation":"Answer: 4.407651178009159","code":"result = (Math::PI ** 4) / 22.1\nputs result"}
+{"status":"ok","answer":"4.407651178009159","explanation":"Answer: 4.407651178009159","code":"puts (Math::PI**4 / 22.1)"}
 &lt; Exiting Calculator#run
 4.407651178009159</code></pre>
 </div>
