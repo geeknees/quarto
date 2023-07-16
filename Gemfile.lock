@@ -12,6 +12,12 @@ GIT
       thor
 
 GIT
+  remote: https://github.com/SciRuby/nyaplot.git
+  revision: 662ebc60b0d1e9fbebe7e06530d8450d266ebbdd
+  specs:
+    nyaplot (0.1.6)
+
+GIT
   remote: https://github.com/geeknees/rb_prob.git
   revision: 7139c9f10838c54afbe83e3d907effb5509a5106
   specs:
@@ -26,6 +32,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    activemodel (7.0.6)
+      activesupport (= 7.0.6)
+    activerecord (7.0.6)
+      activemodel (= 7.0.6)
+      activesupport (= 7.0.6)
     activesupport (7.0.6)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
@@ -35,6 +46,13 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     baran (0.1.7)
+    boxcars (0.3.5)
+      google_search_results (~> 2.2)
+      gpt4all (~> 0.0.4)
+      hnswlib (~> 0.8)
+      nokogiri (~> 1.15)
+      pgvector (~> 0.2)
+      ruby-openai (~> 4.1)
     builder (3.2.4)
     colorize (0.8.1)
     concurrent-ruby (1.2.2)
@@ -50,8 +68,14 @@ GEM
     faraday-multipart (1.0.4)
       multipart-post (~> 2)
     faraday-net_http (3.0.2)
+    google_search_results (2.2.0)
     google_visualr (2.5.1)
+    gpt4all (0.0.5)
+      faraday (~> 2.7)
+      os (~> 1.1)
+      tty-progressbar (~> 0.18.2)
     hash-deep-merge (0.1.1)
+    hnswlib (0.8.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -74,12 +98,14 @@ GEM
     multipart-post (2.3.0)
     nokogiri (1.15.3-arm64-darwin)
       racc (~> 1.4)
-    nyaplot (0.1.6)
+    os (1.1.4)
     packable (1.3.18)
     parallel (1.23.0)
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    pg (1.5.3)
+    pgvector (0.2.1)
     public_suffix (5.0.3)
     racc (1.7.1)
     rails-dom-testing (2.1.1)
@@ -91,7 +117,7 @@ GEM
       nokogiri (~> 1.14)
     rainbow (3.1.1)
     regexp_parser (2.8.1)
-    reline (0.3.2)
+    reline (0.3.6)
       io-console (~> 0.5)
     rexml (3.2.5)
     rubocop (1.54.2)
@@ -112,8 +138,16 @@ GEM
       faraday-multipart (>= 1)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    strings-ansi (0.2.0)
     thor (1.2.2)
     tiktoken_ruby (0.0.5-arm64-darwin)
+    tty-cursor (0.7.1)
+    tty-progressbar (0.18.2)
+      strings-ansi (~> 0.2)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.8)
+      unicode-display_width (>= 1.6, < 3.0)
+    tty-screen (0.8.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
@@ -122,10 +156,15 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  activerecord
+  activesupport
+  boxcars
   daru
   daru-view!
   langchainrb
   matrix
+  nyaplot!
+  pg
   rb_prob!
   reline
   rubocop

@@ -1,0 +1,27 @@
+---
+jupyter: ruby
+title: "Boxcars"
+author: "geeknees"
+date: "2023-07-16"
+categories: [ruby, code, analysis]
+---
+
+
+```{ruby}
+require 'boxcars'
+```
+
+```{ruby}
+
+# showcase Google Serp search
+s = Boxcars::GoogleSearch.new
+s.run "what temperature is it in Phoenix?"
+```
+
+```{ruby}
+require 'active_support'
+
+engine = Boxcars::Openai.new(max_tokens: 256)
+calc = Boxcars::Calculator.new(engine: engine)
+puts calc.run "what is pi to the forth power divided by 22.1?"
+```

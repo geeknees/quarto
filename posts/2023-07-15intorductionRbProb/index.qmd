@@ -1,6 +1,6 @@
 ---
 jupyter: ruby
-title: "Introduction to rb_prob"
+title: "rb_prob"
 author: "geeknees"
 date: "2023-07-13"
 categories: [ruby, code, analysis]
