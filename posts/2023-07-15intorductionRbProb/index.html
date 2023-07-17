@@ -143,11 +143,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Introduction to rb_prob</h1>
+      <h1 class="title">rb_prob</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">ruby</div>
+                <div class="quarto-category">probcomp</div>
                 <div class="quarto-category">code</div>
-                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">ai</div>
               </div>
                   </div>
   </div>
@@ -186,6 +187,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>https://github.com/geeknees/rb_prob</p>
+<p>It’s not ideal, but to quickly fix the ‘method missing’ issue, I’ve added the code below.</p>
+<p><a href="https://github.com/geeknees/rb_prob/blob/master/lib/prob.rb#L251">https://github.com/geeknees/rb_prob/blob/master/lib/prob.rb#L251</a></p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'rubygems'</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'bundler/setup'</span></span>
@@ -413,22 +416,22 @@ P(B | M=true, J=true, E=false, A=true)
 0.4847859721505931
 0.484785972150593
 Rehearsal ------------------------------------------------------------------
-joint probability:               0.151599   0.000591   0.152190 (  0.152259)
-joint probability precomputed:   0.004921   0.000139   0.005060 (  0.005042)
-direkt:                          0.077240   0.000277   0.077517 (  0.077475)
-direkt with conditions:          0.021351   0.000171   0.021522 (  0.021467)
-direkt with event condition:     0.022714   0.000228   0.022942 (  0.022770)
---------------------------------------------------------- total: 0.279231sec
+joint probability:               0.152755   0.000523   0.153278 (  0.153251)
+joint probability precomputed:   0.004824   0.000106   0.004930 (  0.004915)
+direkt:                          0.071230   0.000220   0.071450 (  0.071437)
+direkt with conditions:          0.019523   0.000055   0.019578 (  0.019565)
+direkt with event condition:     0.020049   0.000129   0.020178 (  0.020144)
+--------------------------------------------------------- total: 0.269414sec
 
                                      user     system      total        real
-joint probability:               0.150140   0.000335   0.150475 (  0.150467)
-joint probability precomputed:   0.004732   0.000058   0.004790 (  0.004759)
-direkt:                          0.075758   0.000250   0.076008 (  0.075963)
-direkt with conditions:          0.021379   0.000080   0.021459 (  0.021401)
-direkt with event condition:     0.022335   0.000061   0.022396 (  0.022354)</code></pre>
+joint probability:               0.139036   0.000281   0.139317 (  0.139293)
+joint probability precomputed:   0.004490   0.000101   0.004591 (  0.004562)
+direkt:                          0.070554   0.000181   0.070735 (  0.070704)
+direkt with conditions:          0.019188   0.000169   0.019357 (  0.019327)
+direkt with event condition:     0.019695   0.000082   0.019777 (  0.019746)</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>[#&lt;Benchmark::Tms:0x00000001048f38b0 @label="joint probability:", @real=0.15046699999948032, @cstime=0.0, @cutime=0.0, @stime=0.00033500000000000196, @utime=0.15014000000000005, @total=0.15047500000000005&gt;, #&lt;Benchmark::Tms:0x00000001048ffca0 @label="joint probability precomputed:", @real=0.004758999995829072, @cstime=0.0, @cutime=0.0, @stime=5.8000000000002494e-05, @utime=0.0047320000000000695, @total=0.004790000000000072&gt;, #&lt;Benchmark::Tms:0x00000001047becb0 @label="direkt:", @real=0.07596299999568146, @cstime=0.0, @cutime=0.0, @stime=0.0002500000000000002, @utime=0.07575799999999999, @total=0.07600799999999999&gt;, #&lt;Benchmark::Tms:0x0000000100ccd6b0 @label="direkt with conditions:", @real=0.021401000005425885, @cstime=0.0, @cutime=0.0, @stime=8.000000000001062e-05, @utime=0.021378999999999926, @total=0.021458999999999936&gt;, #&lt;Benchmark::Tms:0x00000001048fce60 @label="direkt with event condition:", @real=0.02235399999335641, @cstime=0.0, @cutime=0.0, @stime=6.0999999999991616e-05, @utime=0.022334999999999994, @total=0.022395999999999985&gt;]</code></pre>
+<pre><code>[#&lt;Benchmark::Tms:0x0000000104fde170 @label="joint probability:", @real=0.13929300001473166, @cstime=0.0, @cutime=0.0, @stime=0.00028100000000000347, @utime=0.13903599999999994, @total=0.13931699999999994&gt;, #&lt;Benchmark::Tms:0x00000001062dfe68 @label="joint probability precomputed:", @real=0.004562000016449019, @cstime=0.0, @cutime=0.0, @stime=0.00010099999999998999, @utime=0.004489999999999994, @total=0.004590999999999984&gt;, #&lt;Benchmark::Tms:0x00000001061701e0 @label="direkt:", @real=0.07070399998337962, @cstime=0.0, @cutime=0.0, @stime=0.0001810000000000006, @utime=0.070554, @total=0.070735&gt;, #&lt;Benchmark::Tms:0x0000000104fdc780 @label="direkt with conditions:", @real=0.019327000016346574, @cstime=0.0, @cutime=0.0, @stime=0.0001689999999999886, @utime=0.019187999999999983, @total=0.01935699999999997&gt;, #&lt;Benchmark::Tms:0x0000000104fd6650 @label="direkt with event condition:", @real=0.019746000005397946, @cstime=0.0, @cutime=0.0, @stime=8.199999999999874e-05, @utime=0.019694999999999907, @total=0.019776999999999906&gt;]</code></pre>
 </div>
 </div>
 
