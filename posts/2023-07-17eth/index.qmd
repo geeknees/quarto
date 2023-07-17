@@ -8,7 +8,7 @@ categories: [ruby, crypto, code]
 
 https://github.com/q9f/eth.rb
 
-It should be noted that using gem 'eth', github: 'q9f/eth.rb' can fix the error of undefined method 'bytesize' for :inspect:Symbol. The following PR addresses the issue of the overridden send method.
+It should be noted that using `gem 'eth', github: 'q9f/eth.rb'` can fix the error of `undefined method 'bytesize' for :inspect:Symbol`. The following PR addresses the issue of the overridden send method.
 
 [https://github.com/q9f/eth.rb/issues/171](https://github.com/q9f/eth.rb/issues/171)
 
