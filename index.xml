@@ -21,7 +21,7 @@
 
 
 <p>https://github.com/q9f/eth.rb</p>
-<p>It should be noted that using gem ‘eth’, github: ‘q9f/eth.rb’ can fix the error of undefined method ‘bytesize’ for :inspect:Symbol. The following PR addresses the issue of the overridden send method.</p>
+<p>It should be noted that using <code>gem 'eth', github: 'q9f/eth.rb'</code> can fix the error of <code>undefined method 'bytesize' for :inspect:Symbol</code>. The following PR addresses the issue of the overridden send method.</p>
 <p><a href="https://github.com/q9f/eth.rb/issues/171">https://github.com/q9f/eth.rb/issues/171</a></p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><span class="fu" style="color: #4758AB;
@@ -81,7 +81,7 @@ font-style: inherit;">}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>#&lt;Eth::Client::Http:0x0000000100c22080 @id=0, @max_priority_fee_per_gas=0.101e10, @max_fee_per_gas=0.4269e11, @host="mainnet.infura.io", @port=443, @ssl=true, @uri=#&lt;URI::HTTPS https://mainnet.infura.io/v3/8581de3fa5864370b0b1a877ba8564b9&gt;&gt;</code></pre>
+<pre><code>#&lt;Eth::Client::Http:0x0000000100e12138 @id=0, @max_priority_fee_per_gas=0.101e10, @max_fee_per_gas=0.4269e11, @host="mainnet.infura.io", @port=443, @ssl=true, @uri=#&lt;URI::HTTPS https://mainnet.infura.io/v3/8581de3fa5864370b0b1a877ba8564b9&gt;&gt;</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="4">
@@ -118,7 +118,7 @@ font-style: italic;">address: </span>address, <span class="wa" style="color: #5E
 background-color: null;
 font-style: italic;">abi: </span>abi)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>#&lt;Eth::Contract::DAI:0x000000010565f558&gt;</code></pre>
+<pre><code>#&lt;Eth::Contract::DAI:0x0000000104f0f438&gt;</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="5">

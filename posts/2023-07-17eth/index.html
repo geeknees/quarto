@@ -186,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>https://github.com/q9f/eth.rb</p>
-<p>It should be noted that using gem ‘eth’, github: ‘q9f/eth.rb’ can fix the error of undefined method ‘bytesize’ for :inspect:Symbol. The following PR addresses the issue of the overridden send method.</p>
+<p>It should be noted that using <code>gem 'eth', github: 'q9f/eth.rb'</code> can fix the error of <code>undefined method 'bytesize' for :inspect:Symbol</code>. The following PR addresses the issue of the overridden send method.</p>
 <p><a href="https://github.com/q9f/eth.rb/issues/171">https://github.com/q9f/eth.rb/issues/171</a></p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">p</span> <span class="cn">ENV</span><span class="kw">[</span><span class="vs">'RUBYINSPECT'</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -206,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>client <span class="kw">=</span> <span class="dt">Eth</span><span class="kw">::</span><span class="dt">Client</span><span class="at">.create</span> <span class="st">"https://mainnet.infura.io/v3/</span><span class="sc">#{</span><span class="cn">ENV</span><span class="kw">[</span><span class="vs">'INFURA_ACCESS_TOKEN'</span><span class="kw">]</span><span class="sc">}</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>#&lt;Eth::Client::Http:0x0000000100c22080 @id=0, @max_priority_fee_per_gas=0.101e10, @max_fee_per_gas=0.4269e11, @host="mainnet.infura.io", @port=443, @ssl=true, @uri=#&lt;URI::HTTPS https://mainnet.infura.io/v3/8581de3fa5864370b0b1a877ba8564b9&gt;&gt;</code></pre>
+<pre><code>#&lt;Eth::Client::Http:0x0000000100e12138 @id=0, @max_priority_fee_per_gas=0.101e10, @max_fee_per_gas=0.4269e11, @host="mainnet.infura.io", @port=443, @ssl=true, @uri=#&lt;URI::HTTPS https://mainnet.infura.io/v3/8581de3fa5864370b0b1a877ba8564b9&gt;&gt;</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="4">
@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>address <span class="kw">=</span> <span class="st">"0x6B175474E89094C44Da98b954EedeAC495271d0F"</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>dai <span class="kw">=</span> <span class="dt">Eth</span><span class="kw">::</span><span class="dt">Contract</span><span class="at">.from_abi</span>(<span class="wa">name: </span>name, <span class="wa">address: </span>address, <span class="wa">abi: </span>abi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>#&lt;Eth::Contract::DAI:0x000000010565f558&gt;</code></pre>
+<pre><code>#&lt;Eth::Contract::DAI:0x0000000104f0f438&gt;</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="5">
