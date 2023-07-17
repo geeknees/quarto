@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://geeknees.github.io/quarto/about.html</loc>
-    <lastmod>2023-07-16T09:25:39.806Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-13introductionGen/index.html</loc>
-    <lastmod>2023-07-16T09:25:39.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-15langchainrb/index.html</loc>
-    <lastmod>2023-07-16T09:25:37.756Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-15intorductionRbProb/index.html</loc>
-    <lastmod>2023-07-16T09:25:36.844Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-16intorductionBoxcars/index.html</loc>
-    <lastmod>2023-07-16T09:25:37.285Z</lastmod>
+    <loc>https://geeknees.github.io/quarto/index.html</loc>
+    <lastmod>2023-07-17T08:00:47.075Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-14introductionDaru/index.html</loc>
-    <lastmod>2023-07-16T09:25:38.389Z</lastmod>
+    <lastmod>2023-07-17T08:00:45.911Z</lastmod>
   </url>
   <url>
-    <loc>https://geeknees.github.io/quarto/index.html</loc>
-    <lastmod>2023-07-16T09:25:39.555Z</lastmod>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-16intorductionBoxcars/index.html</loc>
+    <lastmod>2023-07-17T08:00:44.958Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-15intorductionRbProb/index.html</loc>
+    <lastmod>2023-07-17T08:00:44.535Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-15langchainrb/index.html</loc>
+    <lastmod>2023-07-17T08:00:45.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-13introductionGen/index.html</loc>
+    <lastmod>2023-07-17T08:00:46.537Z</lastmod>
   </url>
 </urlset>
