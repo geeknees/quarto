@@ -3,10 +3,15 @@ jupyter: ruby
 title: "rb_prob"
 author: "geeknees"
 date: "2023-07-13"
-categories: [ruby, code, analysis]
+categories: [ruby, probcomp, code, ai]
 ---
 
 https://github.com/geeknees/rb_prob
+
+
+It's not ideal, but to quickly fix the 'method missing' issue, I've added the code below.
+
+[https://github.com/geeknees/rb_prob/blob/master/lib/prob.rb#L251](https://github.com/geeknees/rb_prob/blob/master/lib/prob.rb#L251)
 
 ```{ruby}
 require 'rubygems'

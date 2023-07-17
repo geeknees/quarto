@@ -3,8 +3,27 @@ jupyter: julia-1.9
 title: "Introduction to Modeling in Gen"
 author: "geeknees"
 date: "2023-07-13"
-categories: [julia, probcomp, code, analysis]
+categories: [julia, probcomp, code, ai]
 ---
+
+https://www.gen.dev/tutorials/intro-to-modeling/tutorial
+
+
+# Installation
+
+```sh
+brew install julia
+julia
+```
+type `]`.
+
+```julia
+add Gen
+add Plots
+```
+
+
+# Setup
 
 ```{julia}
 using Gen
@@ -13,6 +32,10 @@ using Gen
 ```{julia}
 using Plots
 ```
+
+# Writing a probabilistic model as a generative function
+
+## Bayesian linear regressioncrypto,
 
 ```{julia}
 @gen function line_model(xs::Vector{Float64})

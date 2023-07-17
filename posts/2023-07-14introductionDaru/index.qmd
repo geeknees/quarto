@@ -6,10 +6,13 @@ date: "2023-07-13"
 categories: [ruby, code, analysis]
 ---
 
-```{ruby}
-```
 
+https://github.com/SciRuby/daru
 
+To plot the graph, it is necessary to add gem 'daru-view'.
+
+It also requires adding gem 'matrics'. After the PR below is merged, it will be resolved.
+[https://github.com/SciRuby/daru/pull/541](https://github.com/SciRuby/daru/pull/541)
 
 ```{ruby}
 require 'daru'
