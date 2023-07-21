@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Quarto",
     "section": "",
-    "text": "eth\n\n\n\n\n\n\n\nruby\n\n\ncrypto\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\nJul 17, 2023\n\n\n1 min\n\n\n\n\n\n\n\n\nBoxcars\n\n\n\n\n\n\n\nruby\n\n\nai\n\n\ncode\n\n\nllm\n\n\n\n\n\n\n\n\n\n\n\nJul 16, 2023\n\n\n1 min\n\n\n\n\n\n\n\n\nlangchainrb\n\n\n\n\n\n\n\nruby\n\n\nai\n\n\ncode\n\n\nllm\n\n\n\n\n\n\n\n\n\n\n\nJul 15, 2023\n\n\n1 min\n\n\n\n\n\n\n\n\nrb_prob\n\n\n\n\n\n\n\nruby\n\n\nprobcomp\n\n\ncode\n\n\nai\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\n9 min\n\n\n\n\n\n\n\n\nDaru\n\n\n\n\n\n\n\nruby\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\n2 min\n\n\n\n\n\n\n\n\nIntroduction to Modeling in Gen\n\n\n\n\n\n\n\njulia\n\n\nprobcomp\n\n\ncode\n\n\nai\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "高校数学、単元リスト\n\n\n\n\n\n\n\nruby\n\n\nmath\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\nJul 21, 2023\n\n\n1 min\n\n\n\n\n\n\n\n\neth\n\n\n\n\n\n\n\nruby\n\n\ncrypto\n\n\ncode\n\n\n\n\n\n\n\n\n\n\n\nJul 17, 2023\n\n\n1 min\n\n\n\n\n\n\n\n\nBoxcars\n\n\n\n\n\n\n\nruby\n\n\nai\n\n\ncode\n\n\nllm\n\n\n\n\n\n\n\n\n\n\n\nJul 16, 2023\n\n\n1 min\n\n\n\n\n\n\n\n\nlangchainrb\n\n\n\n\n\n\n\nruby\n\n\nai\n\n\ncode\n\n\nllm\n\n\n\n\n\n\n\n\n\n\n\nJul 15, 2023\n\n\n1 min\n\n\n\n\n\n\n\n\nrb_prob\n\n\n\n\n\n\n\nruby\n\n\nprobcomp\n\n\ncode\n\n\nai\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\n9 min\n\n\n\n\n\n\n\n\nDaru\n\n\n\n\n\n\n\nruby\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\n2 min\n\n\n\n\n\n\n\n\nIntroduction to Modeling in Gen\n\n\n\n\n\n\n\njulia\n\n\nprobcomp\n\n\ncode\n\n\nai\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2023-07-13introductionGen/index.html",
@@ -26,6 +26,13 @@
     "title": "langchainrb",
     "section": "",
     "text": "https://github.com/andreibondarev/langchainrb\n\np ENV['RUBYINSPECT']\n\n\"1\"\n\n\n\"1\"\n\n\n\nrequire 'langchain'\n\nopenai = Langchain::LLM::OpenAI.new(api_key: ENV[\"OPENAI_API_KEY\"])\n\nchat = Langchain::Conversation.new(llm: openai)\nchat.set_context(\"You are a chatbot from the future\")\n\nputs \"Welcome to the chatbot from the future!\"\n\nputs chat.message('hey there!')\n\nWelcome to the chatbot from the future!\nHello! How can I assist you today?"
+  },
+  {
+    "objectID": "posts/2023-07-21Math/index.html",
+    "href": "posts/2023-07-21Math/index.html",
+    "title": "高校数学、単元リスト",
+    "section": "",
+    "text": "高校数学\n\n\n\n\ngraph TB\n  数学1--&gt;数と式\n  数学1--&gt;関数と計算\n  数学1--&gt;二次関数\n  数学1--&gt;データの分析\n\n\n\n\n\n\n\n\n\ngraph TB\n  数学2--&gt;いろいろな式\n  数学2--&gt;図形と方程式\n  数学2--&gt;指数関数ー対数関数\n  数学2--&gt;三角関数\n  数学2--&gt;微分積分\n\n\n\n\n\n\n\n\n\ngraph TB\n  数学3--&gt;極限\n  数学3--&gt;微分法\n  数学3--&gt;積分法\n\n\n\n\n\n\n\n\n\ngraph TB\n  数学A--&gt;図形の性質\n  数学A--&gt;場合の数と確率\n  数学A--&gt;数学と人間の活動\n\n\n\n\n\n\n\n\n\ngraph TB\n  数学B--&gt;数列\n  数学B--&gt;統計的な推測\n  数学B--&gt;数学と社会生活\n\n\n\n\n\n\n\n\n\ngraph TB\n  数学C--&gt;ベクトル\n  数学C--&gt;平面上の曲線と複素数平面\n  数学C--&gt;数学的な表現の工夫\n\n\n\n\n\n大学数学\n\n\n\n\ngraph TB\n  教養数学--&gt;統計学\n  教養数学--&gt;微分積分学\n  教養数学--&gt;線形代数\n\n\n\n\n\n\n\n\n\ngraph TB\n  数学基礎--&gt;論理学\n  数学基礎--&gt;集合論\n  数学基礎--&gt;位相空間論\n\n\n\n\n\n\n\n\n\ngraph TB\n  解析学--&gt;ベクトル解析\n  解析学--&gt;解析学の基礎\n  解析学--&gt;常微分方程式論\n  解析学--&gt;フーリエ変換\n  解析学--&gt;複素数解析学\n  解析学--&gt;ルベーグ積分論\n  解析学--&gt;計算数理\n  解析学--&gt;偏微分方程式論\n  解析学--&gt;関数解析学\n  解析学--&gt;スペクトル論\n  解析学--&gt;確率論\n  解析学--&gt;確率微分方程式論\n\n\n\n\n\n\n\n\n\ngraph TB\n  代数学--&gt;代数学基礎（群論、環論）\n  代数学--&gt;体論、ガロア理論\n  代数学--&gt;代数的整数論\n  代数学--&gt;ホモロジー代数学\n  代数学--&gt;数論幾何学\n  代数学--&gt;組合せ論\n\n\n\n\n\n\n\n\n\ngraph TB\n  幾何学--&gt;微分幾何学\n  幾何学--&gt;多様体論\n  幾何学--&gt;位相幾何学\n  幾何学--&gt;可微分多様体論\n  幾何学--&gt;リー群論\n  幾何学--&gt;代数多様体論\n  幾何学--&gt;代数幾何学\n  幾何学--&gt;表現論"
   },
   {
     "objectID": "posts/2023-07-15intorductionRbProb/index.html",
