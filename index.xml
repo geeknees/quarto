@@ -196,6 +196,247 @@
   <pubDate>Thu, 20 Jul 2023 15:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>数学2、指数関数、対数関数、三角関数</title>
+  <dc:creator>geeknees </dc:creator>
+  <link>https://geeknees.github.io/quarto/posts/2023-07-23Math/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"charty"</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"datasets"</span></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numo/narray"</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>false</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb3-2">  <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">charty: </span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Charty</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">VERSION</span>,</span>
+<span id="cb3-3">  <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">datasets: </span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Datasets</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">VERSION</span>,</span>
+<span id="cb3-4">  <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">numo_narray: </span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Numo</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">NArray</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">VERSION</span></span>
+<span id="cb3-5"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>{:charty=&gt;"0.2.12", :datasets=&gt;"0.1.7", :numo_narray=&gt;"0.9.2.1"}</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb5-1"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Charty</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Backends</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.use</span>(<span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">:plotly</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>:plotly</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb7-1">penguins <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Datasets</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Penguins</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.new</span></span>
+<span id="cb7-2"></span>
+<span id="cb7-3">plot <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Charty</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.scatter_plot</span>(<span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">data: </span>penguins, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">x: :body_mass_g</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">y: :flipper_length_mm</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">color: :species</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+  
+  
+  <div id="f19d563c-6d76-4360-844f-9fe9dc1aa106" class="plotly-graph-div" style="height: 525px; width: 100%;"></div>
+  <script type="text/javascript">
+    require(["plotly"], function (Plotly) {
+      window.PLOTLYENV = window.PLOTLYENV || {};
+      window.PLOTLYENV.BASE_URL = 'https://plot.ly';
+      if (document.getElementById("f19d563c-6d76-4360-844f-9fe9dc1aa106")) {
+  Plotly.newPlot("f19d563c-6d76-4360-844f-9fe9dc1aa106", [{"type":"scatter","mode":"markers","x":[3750,3800,3250,3450,3650,3625,4675,3475,4250,3300,3700,3200,3800,4400,3700,3450,4500,3325,4200,3400,3600,3800,3950,3800,3800,3550,3200,3150,3950,3250,3900,3300,3900,3325,4150,3950,3550,3300,4650,3150,3900,3100,4400,3000,4600,3425,2975,3450,4150,3500,4300,3450,4050,2900,3700,3550,3800,2850,3750,3150,4400,3600,4050,2850,3950,3350,4100,3050,4450,3600,3900,3550,4150,3700,4250,3700,3900,3550,4000,3200,4700,3800,4200,3350,3550,3800,3500,3950,3600,3550,4300,3400,4450,3300,4300,3700,4350,2900,4100,3725,4725,3075,4250,2925,3550,3750,3900,3175,4775,3825,4600,3200,4275,3900,4075,2900,3775,3350,3325,3150,3500,3450,3875,3050,4000,3275,4300,3050,4000,3325,3500,3500,4475,3425,3900,3175,3975,3400,4250,3400,3475,3050,3725,3000,3650,4250,3475,3450,3750,3700,4000],"y":[181,186,195,193,190,181,195,193,190,186,180,182,191,198,185,195,197,184,194,174,180,189,185,180,187,183,187,172,180,178,178,188,184,195,196,190,180,181,184,182,195,186,196,185,190,182,179,190,191,186,188,190,200,187,191,186,193,181,194,185,195,185,192,184,192,195,188,190,198,190,190,196,197,190,195,191,184,187,195,189,196,187,193,191,194,190,189,189,190,202,205,185,186,187,208,190,196,178,192,192,203,183,190,193,184,199,190,181,197,198,191,193,197,191,196,188,199,189,189,187,198,176,202,186,199,191,195,191,210,190,197,193,199,187,190,191,200,185,193,193,187,188,190,192,185,190,184,195,193,187,201],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#1f77b4ff"},"name":"Adelie"},{"type":"scatter","mode":"markers","x":[3500,3900,3650,3525,3725,3950,3250,3750,4150,3700,3800,3775,3700,4050,3575,4050,3300,3700,3450,4400,3600,3400,2900,3800,3300,4150,3400,3800,3700,4550,3200,4300,3350,4100,3600,3900,3850,4800,2700,4500,3950,3650,3550,3500,3675,4450,3400,4300,3250,3675,3325,3950,3600,4050,3350,3450,3250,4050,3800,3525,3950,3650,3650,4000,3400,3775,4100,3775],"y":[192,196,193,188,197,198,178,197,195,198,193,194,185,201,190,201,197,181,190,195,181,191,187,193,195,197,200,200,191,205,187,201,187,203,195,199,195,210,192,205,210,187,196,196,196,201,190,212,187,198,199,201,193,203,187,197,191,203,202,194,206,189,195,207,202,193,210,198],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#ff7f0eff"},"name":"Chinstrap"},{"type":"scatter","mode":"markers","x":[4500,5700,4450,5700,5400,4550,4800,5200,4400,5150,4650,5550,4650,5850,4200,5850,4150,6300,4800,5350,5700,5000,4400,5050,5000,5100,4100,5650,4600,5550,5250,4700,5050,6050,5150,5400,4950,5250,4350,5350,3950,5700,4300,4750,5550,4900,4200,5400,5100,5300,4850,5300,4400,5000,4900,5050,4300,5000,4450,5550,4200,5300,4400,5650,4700,5700,4650,5800,4700,5550,4750,5000,5100,5200,4700,5800,4600,6000,4750,5950,4625,5450,4725,5350,4750,5600,4600,5300,4875,5550,4950,5400,4750,5650,4850,5200,4925,4875,4625,5250,4850,5600,4975,5500,4725,5500,4700,5500,4575,5500,5000,5950,4650,5500,4375,5850,4875,6000,4925,4850,5750,5200,5400],"y":[211,230,210,218,215,210,211,219,209,215,214,216,214,213,210,217,210,221,209,222,218,215,213,215,215,215,216,215,210,220,222,209,207,230,220,220,213,219,208,208,208,225,210,216,222,217,210,225,213,215,210,220,210,225,217,220,208,220,208,224,208,221,214,231,219,230,214,229,220,223,216,221,221,217,216,230,209,220,215,223,212,221,212,224,212,228,218,218,212,230,218,228,212,224,214,226,216,222,203,225,219,228,215,228,216,215,210,219,208,209,216,229,213,230,217,230,217,222,214,215,222,212,213],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#2ca02cff"},"name":"Gentoo"}], {"showlegend":true,"legend":{"title":{"text":"species"}},"xaxis":{"title":"body_mass_g"},"yaxis":{"title":"flipper_length_mm"}}, {}).then(function(){ var gd = document.getElementById('f19d563c-6d76-4360-844f-9fe9dc1aa106');
+var x = new MutationObserver(function (mutations, observer) {
+  var display = window.getComputedStyle(gd).display;
+  if (!display || display === 'none') {
+    console.log([gd, 'removed']);
+    Plotly.purge(gd);
+    observer.disconnect();
+  }
+});
+
+// Listen for the removal of the full notebook cell
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {
+  x.observe(notebookContainer, {childList: true});
+}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {
+  x.observe(outputEl, {childList: true});
+}
+ });
+}
+
+    });
+  </script>
+</div>
+</div>
+</div>
+<section id="sin" class="level1">
+<h1>sin</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb8-1">charty <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Charty</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Plotter</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.new</span>(<span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">:gruff</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>#&lt;Charty::Plotter:0x000000010c8bdb90 @backend=#&lt;Charty::Backends::Gruff:0x000000010c8bdac8 @plot=Gruff&gt;&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb10-1">curve <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> charty<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.curve</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">do</span></span>
+<span id="cb10-2">  function <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{|</span>x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Math</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.sin</span>(x) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb10-3">  range <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">x: </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">y: </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb10-4">  xlabel <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'foo'</span></span>
+<span id="cb10-5">  ylabel <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'bar'</span></span>
+<span id="cb10-6"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">end</span></span>
+<span id="cb10-7">curve<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.render</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sample_images/sin.png"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<p><img src="https://geeknees.github.io/quarto/posts/2023-07-23Math/index_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>ruby</category>
+  <category>math</category>
+  <category>code</category>
+  <guid>https://geeknees.github.io/quarto/posts/2023-07-23Math/index.html</guid>
+  <pubDate>Thu, 20 Jul 2023 15:00:00 GMT</pubDate>
+</item>
+<item>
   <title>eth</title>
   <dc:creator>geeknees </dc:creator>
   <link>https://geeknees.github.io/quarto/posts/2023-07-17eth/index.html</link>
