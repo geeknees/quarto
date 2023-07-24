@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="geeknees">
-<meta name="dcterms.date" content="2023-07-21">
+<meta name="dcterms.date" content="2023-07-23">
 
 <title>Code Snippet Chronicles - 数学2、指数関数、対数関数、三角関数</title>
 <style>
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 21, 2023</p>
+        <p class="date">July 23, 2023</p>
       </div>
     </div>
     
@@ -184,7 +184,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sin" id="toc-sin" class="nav-link active" data-scroll-target="#sin">sin</a></li>
+  <li><a href="#sin-cos-tan" id="toc-sin-cos-tan" class="nav-link active" data-scroll-target="#sin-cos-tan">sin-cos-tan</a></li>
+  <li><a href="#squrt-log" id="toc-squrt-log" class="nav-link" data-scroll-target="#squrt-log">squrt-log</a></li>
   </ul>
 </nav>
     </div>
@@ -198,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="st">"charty"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="st">"datasets"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="st">"numo/narray"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>false</code></pre>
 </div>
 </div>
@@ -208,13 +209,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="wa">datasets: </span><span class="dt">Datasets</span><span class="kw">::</span><span class="cn">VERSION</span>,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="wa">numo_narray: </span><span class="dt">Numo</span><span class="kw">::</span><span class="dt">NArray</span><span class="kw">::</span><span class="cn">VERSION</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>{:charty=&gt;"0.2.12", :datasets=&gt;"0.1.7", :numo_narray=&gt;"0.9.2.1"}</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Charty</span><span class="kw">::</span><span class="dt">Backends</span><span class="at">.use</span>(<span class="wa">:plotly</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>:plotly</code></pre>
 </div>
 </div>
@@ -222,17 +223,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="kw">=</span> <span class="dt">Datasets</span><span class="kw">::</span><span class="dt">Penguins</span><span class="at">.new</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plot <span class="kw">=</span> <span class="dt">Charty</span><span class="at">.scatter_plot</span>(<span class="wa">data: </span>penguins, <span class="wa">x: :body_mass_g</span>, <span class="wa">y: :flipper_length_mm</span>, <span class="wa">color: :species</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
   
   
-  <div id="f19d563c-6d76-4360-844f-9fe9dc1aa106" class="plotly-graph-div" style="height: 525px; width: 100%;"></div>
+  <div id="a5858c69-9c38-4019-bf24-f0891b8f319f" class="plotly-graph-div" style="height: 525px; width: 100%;"></div>
   <script type="text/javascript">
     require(["plotly"], function (Plotly) {
       window.PLOTLYENV = window.PLOTLYENV || {};
       window.PLOTLYENV.BASE_URL = 'https://plot.ly';
-      if (document.getElementById("f19d563c-6d76-4360-844f-9fe9dc1aa106")) {
-  Plotly.newPlot("f19d563c-6d76-4360-844f-9fe9dc1aa106", [{"type":"scatter","mode":"markers","x":[3750,3800,3250,3450,3650,3625,4675,3475,4250,3300,3700,3200,3800,4400,3700,3450,4500,3325,4200,3400,3600,3800,3950,3800,3800,3550,3200,3150,3950,3250,3900,3300,3900,3325,4150,3950,3550,3300,4650,3150,3900,3100,4400,3000,4600,3425,2975,3450,4150,3500,4300,3450,4050,2900,3700,3550,3800,2850,3750,3150,4400,3600,4050,2850,3950,3350,4100,3050,4450,3600,3900,3550,4150,3700,4250,3700,3900,3550,4000,3200,4700,3800,4200,3350,3550,3800,3500,3950,3600,3550,4300,3400,4450,3300,4300,3700,4350,2900,4100,3725,4725,3075,4250,2925,3550,3750,3900,3175,4775,3825,4600,3200,4275,3900,4075,2900,3775,3350,3325,3150,3500,3450,3875,3050,4000,3275,4300,3050,4000,3325,3500,3500,4475,3425,3900,3175,3975,3400,4250,3400,3475,3050,3725,3000,3650,4250,3475,3450,3750,3700,4000],"y":[181,186,195,193,190,181,195,193,190,186,180,182,191,198,185,195,197,184,194,174,180,189,185,180,187,183,187,172,180,178,178,188,184,195,196,190,180,181,184,182,195,186,196,185,190,182,179,190,191,186,188,190,200,187,191,186,193,181,194,185,195,185,192,184,192,195,188,190,198,190,190,196,197,190,195,191,184,187,195,189,196,187,193,191,194,190,189,189,190,202,205,185,186,187,208,190,196,178,192,192,203,183,190,193,184,199,190,181,197,198,191,193,197,191,196,188,199,189,189,187,198,176,202,186,199,191,195,191,210,190,197,193,199,187,190,191,200,185,193,193,187,188,190,192,185,190,184,195,193,187,201],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#1f77b4ff"},"name":"Adelie"},{"type":"scatter","mode":"markers","x":[3500,3900,3650,3525,3725,3950,3250,3750,4150,3700,3800,3775,3700,4050,3575,4050,3300,3700,3450,4400,3600,3400,2900,3800,3300,4150,3400,3800,3700,4550,3200,4300,3350,4100,3600,3900,3850,4800,2700,4500,3950,3650,3550,3500,3675,4450,3400,4300,3250,3675,3325,3950,3600,4050,3350,3450,3250,4050,3800,3525,3950,3650,3650,4000,3400,3775,4100,3775],"y":[192,196,193,188,197,198,178,197,195,198,193,194,185,201,190,201,197,181,190,195,181,191,187,193,195,197,200,200,191,205,187,201,187,203,195,199,195,210,192,205,210,187,196,196,196,201,190,212,187,198,199,201,193,203,187,197,191,203,202,194,206,189,195,207,202,193,210,198],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#ff7f0eff"},"name":"Chinstrap"},{"type":"scatter","mode":"markers","x":[4500,5700,4450,5700,5400,4550,4800,5200,4400,5150,4650,5550,4650,5850,4200,5850,4150,6300,4800,5350,5700,5000,4400,5050,5000,5100,4100,5650,4600,5550,5250,4700,5050,6050,5150,5400,4950,5250,4350,5350,3950,5700,4300,4750,5550,4900,4200,5400,5100,5300,4850,5300,4400,5000,4900,5050,4300,5000,4450,5550,4200,5300,4400,5650,4700,5700,4650,5800,4700,5550,4750,5000,5100,5200,4700,5800,4600,6000,4750,5950,4625,5450,4725,5350,4750,5600,4600,5300,4875,5550,4950,5400,4750,5650,4850,5200,4925,4875,4625,5250,4850,5600,4975,5500,4725,5500,4700,5500,4575,5500,5000,5950,4650,5500,4375,5850,4875,6000,4925,4850,5750,5200,5400],"y":[211,230,210,218,215,210,211,219,209,215,214,216,214,213,210,217,210,221,209,222,218,215,213,215,215,215,216,215,210,220,222,209,207,230,220,220,213,219,208,208,208,225,210,216,222,217,210,225,213,215,210,220,210,225,217,220,208,220,208,224,208,221,214,231,219,230,214,229,220,223,216,221,221,217,216,230,209,220,215,223,212,221,212,224,212,228,218,218,212,230,218,228,212,224,214,226,216,222,203,225,219,228,215,228,216,215,210,219,208,209,216,229,213,230,217,230,217,222,214,215,222,212,213],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#2ca02cff"},"name":"Gentoo"}], {"showlegend":true,"legend":{"title":{"text":"species"}},"xaxis":{"title":"body_mass_g"},"yaxis":{"title":"flipper_length_mm"}}, {}).then(function(){ var gd = document.getElementById('f19d563c-6d76-4360-844f-9fe9dc1aa106');
+      if (document.getElementById("a5858c69-9c38-4019-bf24-f0891b8f319f")) {
+  Plotly.newPlot("a5858c69-9c38-4019-bf24-f0891b8f319f", [{"type":"scatter","mode":"markers","x":[3750,3800,3250,3450,3650,3625,4675,3475,4250,3300,3700,3200,3800,4400,3700,3450,4500,3325,4200,3400,3600,3800,3950,3800,3800,3550,3200,3150,3950,3250,3900,3300,3900,3325,4150,3950,3550,3300,4650,3150,3900,3100,4400,3000,4600,3425,2975,3450,4150,3500,4300,3450,4050,2900,3700,3550,3800,2850,3750,3150,4400,3600,4050,2850,3950,3350,4100,3050,4450,3600,3900,3550,4150,3700,4250,3700,3900,3550,4000,3200,4700,3800,4200,3350,3550,3800,3500,3950,3600,3550,4300,3400,4450,3300,4300,3700,4350,2900,4100,3725,4725,3075,4250,2925,3550,3750,3900,3175,4775,3825,4600,3200,4275,3900,4075,2900,3775,3350,3325,3150,3500,3450,3875,3050,4000,3275,4300,3050,4000,3325,3500,3500,4475,3425,3900,3175,3975,3400,4250,3400,3475,3050,3725,3000,3650,4250,3475,3450,3750,3700,4000],"y":[181,186,195,193,190,181,195,193,190,186,180,182,191,198,185,195,197,184,194,174,180,189,185,180,187,183,187,172,180,178,178,188,184,195,196,190,180,181,184,182,195,186,196,185,190,182,179,190,191,186,188,190,200,187,191,186,193,181,194,185,195,185,192,184,192,195,188,190,198,190,190,196,197,190,195,191,184,187,195,189,196,187,193,191,194,190,189,189,190,202,205,185,186,187,208,190,196,178,192,192,203,183,190,193,184,199,190,181,197,198,191,193,197,191,196,188,199,189,189,187,198,176,202,186,199,191,195,191,210,190,197,193,199,187,190,191,200,185,193,193,187,188,190,192,185,190,184,195,193,187,201],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#1f77b4ff"},"name":"Adelie"},{"type":"scatter","mode":"markers","x":[3500,3900,3650,3525,3725,3950,3250,3750,4150,3700,3800,3775,3700,4050,3575,4050,3300,3700,3450,4400,3600,3400,2900,3800,3300,4150,3400,3800,3700,4550,3200,4300,3350,4100,3600,3900,3850,4800,2700,4500,3950,3650,3550,3500,3675,4450,3400,4300,3250,3675,3325,3950,3600,4050,3350,3450,3250,4050,3800,3525,3950,3650,3650,4000,3400,3775,4100,3775],"y":[192,196,193,188,197,198,178,197,195,198,193,194,185,201,190,201,197,181,190,195,181,191,187,193,195,197,200,200,191,205,187,201,187,203,195,199,195,210,192,205,210,187,196,196,196,201,190,212,187,198,199,201,193,203,187,197,191,203,202,194,206,189,195,207,202,193,210,198],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#ff7f0eff"},"name":"Chinstrap"},{"type":"scatter","mode":"markers","x":[4500,5700,4450,5700,5400,4550,4800,5200,4400,5150,4650,5550,4650,5850,4200,5850,4150,6300,4800,5350,5700,5000,4400,5050,5000,5100,4100,5650,4600,5550,5250,4700,5050,6050,5150,5400,4950,5250,4350,5350,3950,5700,4300,4750,5550,4900,4200,5400,5100,5300,4850,5300,4400,5000,4900,5050,4300,5000,4450,5550,4200,5300,4400,5650,4700,5700,4650,5800,4700,5550,4750,5000,5100,5200,4700,5800,4600,6000,4750,5950,4625,5450,4725,5350,4750,5600,4600,5300,4875,5550,4950,5400,4750,5650,4850,5200,4925,4875,4625,5250,4850,5600,4975,5500,4725,5500,4700,5500,4575,5500,5000,5950,4650,5500,4375,5850,4875,6000,4925,4850,5750,5200,5400],"y":[211,230,210,218,215,210,211,219,209,215,214,216,214,213,210,217,210,221,209,222,218,215,213,215,215,215,216,215,210,220,222,209,207,230,220,220,213,219,208,208,208,225,210,216,222,217,210,225,213,215,210,220,210,225,217,220,208,220,208,224,208,221,214,231,219,230,214,229,220,223,216,221,221,217,216,230,209,220,215,223,212,221,212,224,212,228,218,218,212,230,218,228,212,224,214,226,216,222,203,225,219,228,215,228,216,215,210,219,208,209,216,229,213,230,217,230,217,222,214,215,222,212,213],"marker":{"line":{"width":1,"color":"#fff"},"size":10,"color":"#2ca02cff"},"name":"Gentoo"}], {"showlegend":true,"legend":{"title":{"text":"species"}},"xaxis":{"title":"body_mass_g"},"yaxis":{"title":"flipper_length_mm"}}, {}).then(function(){ var gd = document.getElementById('a5858c69-9c38-4019-bf24-f0891b8f319f');
 var x = new MutationObserver(function (mutations, observer) {
   var display = window.getComputedStyle(gd).display;
   if (!display || display === 'none') {
@@ -261,12 +262,12 @@ if (outputEl) {
 </div>
 </div>
 </div>
-<section id="sin" class="level1">
-<h1>sin</h1>
+<section id="sin-cos-tan" class="level1">
+<h1>sin-cos-tan</h1>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>charty <span class="kw">=</span> <span class="dt">Charty</span><span class="kw">::</span><span class="dt">Plotter</span><span class="at">.new</span>(<span class="wa">:gruff</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>#&lt;Charty::Plotter:0x000000010c8bdb90 @backend=#&lt;Charty::Backends::Gruff:0x000000010c8bdac8 @plot=Gruff&gt;&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>#&lt;Charty::Plotter:0x000000010630fb68 @backend=#&lt;Charty::Backends::Gruff:0x000000010630fa00 @plot=Gruff&gt;&gt;</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="6">
@@ -277,8 +278,95 @@ if (outputEl) {
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  ylabel <span class="vs">'bar'</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>curve<span class="at">.render</span>(<span class="st">"sample_images/sin.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <p><img src="index_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>curve <span class="kw">=</span> charty<span class="at">.curve</span> <span class="cf">do</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  function <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.cos</span>(x) <span class="kw">}</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  range <span class="wa">x: </span><span class="dv">0</span><span class="kw">..</span><span class="dv">10</span>, <span class="wa">y: </span><span class="kw">-</span><span class="dv">1</span><span class="kw">..</span><span class="dv">1</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="vs">'foo'</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  ylabel <span class="vs">'bar'</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>curve<span class="at">.render</span>(<span class="st">"sample_images/cos.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<p><img src="index_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>curve <span class="kw">=</span> charty<span class="at">.curve</span> <span class="cf">do</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  function <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.tan</span>(x) <span class="kw">}</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  range <span class="wa">x: </span><span class="dv">0</span><span class="kw">..</span><span class="dv">10</span>, <span class="wa">y: </span><span class="kw">-</span><span class="dv">1</span><span class="kw">..</span><span class="dv">1</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="vs">'foo'</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  ylabel <span class="vs">'bar'</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>curve<span class="at">.render</span>(<span class="st">"sample_images/tan.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<p><img src="index_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="squrt-log" class="level1">
+<h1>squrt-log</h1>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>curve <span class="kw">=</span> charty<span class="at">.curve</span> <span class="cf">do</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  function <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.log</span>(x) <span class="kw">}</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  range <span class="wa">x: </span><span class="dv">1</span><span class="kw">..</span><span class="dv">10</span>, <span class="wa">y: </span><span class="kw">-</span><span class="dv">1</span><span class="kw">..</span><span class="dv">1</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="vs">'foo'</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  ylabel <span class="vs">'bar'</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>curve<span class="at">.render</span>(<span class="st">"sample_images/log.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<p><img src="index_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>curve <span class="kw">=</span> charty<span class="at">.curve</span> <span class="cf">do</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  function <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.log2</span>(x) <span class="kw">}</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  range <span class="wa">x: </span><span class="dv">1</span><span class="kw">..</span><span class="dv">10</span>, <span class="wa">y: </span><span class="kw">-</span><span class="dv">1</span><span class="kw">..</span><span class="dv">1</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="vs">'foo'</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  ylabel <span class="vs">'bar'</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>curve<span class="at">.render</span>(<span class="st">"sample_images/log2.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<p><img src="index_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>curve <span class="kw">=</span> charty<span class="at">.curve</span> <span class="cf">do</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  function <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.log10</span>(x) <span class="kw">}</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  range <span class="wa">x: </span><span class="dv">1</span><span class="kw">..</span><span class="dv">10</span>, <span class="wa">y: </span><span class="kw">-</span><span class="dv">1</span><span class="kw">..</span><span class="dv">1</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="vs">'foo'</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  ylabel <span class="vs">'bar'</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>curve<span class="at">.render</span>(<span class="st">"sample_images/log10.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<p><img src="index_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>curve <span class="kw">=</span> charty<span class="at">.curve</span> <span class="cf">do</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  function <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.sqrt</span>(x) <span class="kw">}</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  range <span class="wa">x: </span><span class="dv">0</span><span class="kw">..</span><span class="dv">10</span>, <span class="wa">y: </span><span class="kw">-</span><span class="dv">1</span><span class="kw">..</span><span class="dv">1</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="vs">'foo'</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  ylabel <span class="vs">'bar'</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>curve<span class="at">.render</span>(<span class="st">"sample_images/sqrt.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<p><img src="index_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>curve <span class="kw">=</span> charty<span class="at">.curve</span> <span class="cf">do</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  function <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.exp</span>(x) <span class="kw">}</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  range <span class="wa">x: </span><span class="dv">0</span><span class="kw">..</span><span class="dv">10</span>, <span class="wa">y: </span><span class="kw">-</span><span class="dv">1</span><span class="kw">..</span><span class="dv">1</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="vs">'foo'</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  ylabel <span class="vs">'bar'</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>curve<span class="at">.render</span>(<span class="st">"sample_images/exp.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<p><img src="index_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 
