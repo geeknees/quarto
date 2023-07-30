@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://geeknees.github.io/quarto/index.html</loc>
-    <lastmod>2023-07-24T15:03:22.717Z</lastmod>
+    <lastmod>2023-07-30T14:05:40.864Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-13introductionGen/index.html</loc>
-    <lastmod>2023-07-24T15:03:21.256Z</lastmod>
+    <lastmod>2023-07-30T14:05:38.674Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-15langchainrb/index.html</loc>
-    <lastmod>2023-07-24T15:03:19.791Z</lastmod>
+    <lastmod>2023-07-30T14:05:37.346Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-23Math/index.html</loc>
-    <lastmod>2023-07-24T15:03:18.892Z</lastmod>
+    <lastmod>2023-07-30T14:05:36.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-30Math/index.html</loc>
+    <lastmod>2023-07-30T14:05:35.557Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-15intorductionRbProb/index.html</loc>
-    <lastmod>2023-07-24T15:03:17.847Z</lastmod>
+    <lastmod>2023-07-30T14:05:35.013Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-21Math/index.html</loc>
-    <lastmod>2023-07-24T15:03:18.345Z</lastmod>
+    <lastmod>2023-07-30T14:05:36.030Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-16intorductionBoxcars/index.html</loc>
-    <lastmod>2023-07-24T15:03:19.370Z</lastmod>
+    <lastmod>2023-07-30T14:05:36.922Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-14introductionDaru/index.html</loc>
-    <lastmod>2023-07-24T15:03:20.325Z</lastmod>
+    <lastmod>2023-07-30T14:05:37.853Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-17eth/index.html</loc>
-    <lastmod>2023-07-24T15:03:21.981Z</lastmod>
+    <lastmod>2023-07-30T14:05:39.699Z</lastmod>
   </url>
 </urlset>

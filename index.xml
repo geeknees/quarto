@@ -10,7 +10,643 @@
 <atom:link href="https://geeknees.github.io/quarto/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Sat, 22 Jul 2023 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 29 Jul 2023 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>2進数、連立方程式</title>
+  <dc:creator>geeknees </dc:creator>
+  <link>https://geeknees.github.io/quarto/posts/2023-07-30Math/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="進数" class="level1">
+<h1>2進数</h1>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> decimal_to_binary(target)</span>
+<span id="cb1-2">  remainders <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[]</span>   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># List to store remainders</span></span>
+<span id="cb1-3"></span>
+<span id="cb1-4">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Until the quotient becomes 0 during division</span></span>
+<span id="cb1-5">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> target !<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-6">    remainders <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;&lt;</span> target <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">%</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Remainder</span></span>
+<span id="cb1-7">    target <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> target <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Quotient</span></span>
+<span id="cb1-8">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">end</span></span>
+<span id="cb1-9"></span>
+<span id="cb1-10">  remainders<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.reverse</span>()   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Reverse the elements in the list</span></span>
+<span id="cb1-11"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">end</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="175">
+<pre><code>:decimal_to_binary</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">p</span> decimal_to_binary(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">65</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 0, 0, 0, 0, 0, 1]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="176">
+<pre><code>[1, 0, 0, 0, 0, 0, 1]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb6-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> binary_to_decial(target)</span>
+<span id="cb6-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">raise</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">ArgumentError</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> target<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.to_s</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=~</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/[^01]/</span></span>
+<span id="cb6-3">  target</span>
+<span id="cb6-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.digits</span></span>
+<span id="cb6-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.each_with_index</span></span>
+<span id="cb6-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.sum</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span>digit, index<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span> digit <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">**</span>index <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb6-7"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">end</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="177">
+<pre><code>:binary_to_decial</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">p</span> binary_to_decial(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1001</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="178">
+<pre><code>9</code></pre>
+</div>
+</div>
+</section>
+<section id="連立方程式" class="level1">
+<h1>連立方程式</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"charty"</span></span>
+<span id="cb11-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"datasets"</span></span>
+<span id="cb11-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numo/narray"</span></span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="179">
+<pre><code>false</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb13-1">charty <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Charty</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Plotter</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.new</span>(<span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">:gruff</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="180">
+<pre><code>#&lt;Charty::Plotter:0x0000000104dfc7a8 @backend=#&lt;Charty::Backends::Gruff:0x0000000104dfc6b8 @plot=Gruff&gt;&gt;</code></pre>
+</div>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ay%20=%20-2/3%20x%20+%206%0A"> <img src="https://latex.codecogs.com/png.latex?%0Ay%20=%201/2%20x%20+%202%0A"></p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb15-1">curve <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> charty<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.scatter</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">do</span></span>
+<span id="cb15-2">  series <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.map</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{|</span>x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span> x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.to_f</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">label: </span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'sample1'</span></span>
+<span id="cb15-3">  series <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.map</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{|</span>x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span> (x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.to_f</span>) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">label: </span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'sample2'</span></span>
+<span id="cb15-4">  range <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">x: </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">y: </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span></span>
+<span id="cb15-5">  xlabel <span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'x'</span></span>
+<span id="cb15-6">  ylabel <span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'y'</span></span>
+<span id="cb15-7"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">end</span></span>
+<span id="cb15-8">curve<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.render</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sample_images/2.png"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="181">
+<p><img src="https://geeknees.github.io/quarto/posts/2023-07-30Math/index_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A2/3%20x%20+%20y%20=%206%0A"> <img src="https://latex.codecogs.com/png.latex?%0A-1/2%20x%20+%20y%20=%202%0A"></p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb16-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'matrix'</span></span>
+<span id="cb16-2"></span>
+<span id="cb16-3">a <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Matrix</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.to_f</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span>,<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.to_f</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]]</span></span>
+<span id="cb16-4">b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Vector</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb16-5">a<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.lup.solve</span>(b)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="182">
+<pre><code>Vector[3.4285714285714284, 3.7142857142857144]</code></pre>
+</div>
+</div>
+<hr>
+<p><img src="https://latex.codecogs.com/png.latex?%0A2y%20=%201/2%20-%201/2x%0A"> <img src="https://latex.codecogs.com/png.latex?%0Ay%20=%20-1/3%20x%0A"></p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb18-1">curve <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> charty<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.scatter</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">do</span></span>
+<span id="cb18-2">  series <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.map</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{|</span>x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span> x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.to_f</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.to_f</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">label: </span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'sample1'</span></span>
+<span id="cb18-3">  series <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.map</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{|</span>x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">|</span> (x<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">/-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.to_f</span>)<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">label: </span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'sample2'</span></span>
+<span id="cb18-4">  range <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">x: </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">y: </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">..</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span></span>
+<span id="cb18-5">  xlabel <span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'x'</span></span>
+<span id="cb18-6">  ylabel <span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'y'</span></span>
+<span id="cb18-7"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">end</span></span>
+<span id="cb18-8">curve<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.render</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sample_images/3.png"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="183">
+<p><img src="https://geeknees.github.io/quarto/posts/2023-07-30Math/index_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ax%20+%202y%20=%201%0A"> <img src="https://latex.codecogs.com/png.latex?%0Ax%20+%203y%20=%200%0A"></p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'matrix'</span></span>
+<span id="cb19-2"></span>
+<span id="cb19-3">a <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Matrix</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[[</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.0</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span>,<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.0</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]]</span></span>
+<span id="cb19-4">b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Vector</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.0</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb19-5">a<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.lup.solve</span>(b)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="184">
+<pre><code>Vector[3.0, -1.0]</code></pre>
+</div>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ax%20=%203,%20y%20=%20-1%0A"></p>
+<hr>
+<p><img src="https://latex.codecogs.com/png.latex?2x%20+%204y%20-%202z%20=%204"></p>
+<p><img src="https://latex.codecogs.com/png.latex?2x%20+%20y%20+%20z%20=%207"></p>
+<p><img src="https://latex.codecogs.com/png.latex?x%20+%20y%20+%20z%20=%206"></p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'matrix'</span></span>
+<span id="cb21-2"></span>
+<span id="cb21-3">a <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Matrix</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span>,<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span>,<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]]</span></span>
+<span id="cb21-4">b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Vector</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb21-5">a<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.lup.solve</span>(b)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="185">
+<pre><code>Vector[(1/1), (2/1), (3/1)]</code></pre>
+</div>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ax%20=%201,%20y%20=%202,%20z%20=%203%0A"></p>
+
+
+</section>
+
+ ]]></description>
+  <category>ruby</category>
+  <category>math</category>
+  <category>code</category>
+  <guid>https://geeknees.github.io/quarto/posts/2023-07-30Math/index.html</guid>
+  <pubDate>Sat, 29 Jul 2023 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>数学2、指数関数、対数関数、三角関数</title>
   <dc:creator>geeknees </dc:creator>
