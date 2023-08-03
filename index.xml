@@ -10,7 +10,67 @@
 <atom:link href="https://geeknees.github.io/quarto/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Sat, 29 Jul 2023 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 02 Aug 2023 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>公式</title>
+  <dc:creator>geeknees </dc:creator>
+  <link>https://geeknees.github.io/quarto/posts/2023-08-03Math/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="高校数学" class="level1">
+<h1>高校数学</h1>
+<section id="次方程式の解の公式" class="level2">
+<h2 class="anchored" data-anchor-id="次方程式の解の公式">2次方程式の解の公式</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0Aax%5E2+bx+c=0%20%5Cquad%20(a%20%5Cneq%200)%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ax%20=%20%5Cfrac%7B-b%20%5Cpm%E3%80%80%5Csqrt%7Bb%5E2%20-%204ac%7D%7D%7B2a%7D%0A"></p>
+</section>
+<section id="解と係数の関係" class="level2">
+<h2 class="anchored" data-anchor-id="解と係数の関係">解と係数の関係</h2>
+<p>2次方程式<img src="https://latex.codecogs.com/png.latex?ax%5E2+bx+c=0">の二つの解を<img src="https://latex.codecogs.com/png.latex?%5Calpha">, <img src="https://latex.codecogs.com/png.latex?%5Cbeta">とするとき, 解と係数の間には次の関係がある。</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Calpha%20+%20%5Cbeta%20=%20-%20%5Cfrac%7Bb%7D%7Ba%7D,%20%5Cquad%20%5Calpha%5Cbeta%20=%20%5Cfrac%7Bc%7D%7Ba%7D%0A"></p>
+</section>
+<section id="乗法の公式" class="level2">
+<h2 class="anchored" data-anchor-id="乗法の公式">乗法の公式</h2>
+<p><img src="https://latex.codecogs.com/png.latex?(x%20+%20b)(x%20+%20d)%20=%20x%5E2%20+%20(b+d)x%20+%20bd"></p>
+<p><img src="https://latex.codecogs.com/png.latex?(ax%20+%20b)(cx%20+%20d)%20=%20acx%5E2%20+%20(ad%20+%20bc)x%20+%20bd"></p>
+<p><img src="https://latex.codecogs.com/png.latex?(x+y)%5E2%20=%20x%5E2%20+%202xy%20+%20y%5E2"></p>
+<p><img src="https://latex.codecogs.com/png.latex?(x-y)%5E2%20=%20x%5E2%20-%202xy%20+%20y%5E2"></p>
+<p><img src="https://latex.codecogs.com/png.latex?(x+y)(x-y)%20=%20x%5E2%20-%20y%5E2"></p>
+<p><img src="https://latex.codecogs.com/png.latex?(x+y+z)%5E3%20=%20x%5E2%20+%20y%5E2%20+%20z%5E2%20+%202xy%20+%202yz%20+2zx"></p>
+<p><img src="https://latex.codecogs.com/png.latex?(x+y)%5E3=%20x%5E3%20+%203x%5E2y%20+%203xy%5E2%20+%20y%5E3"></p>
+<p><img src="https://latex.codecogs.com/png.latex?(x-y)%5E3=%20x%5E3%20-%203x%5E2y%20+%203xy%5E2%20-%20y%5E3"></p>
+</section>
+</section>
+<section id="大学数学" class="level1">
+<h1>大学数学</h1>
+<section id="フーリエ変換" class="level2">
+<h2 class="anchored" data-anchor-id="フーリエ変換">フーリエ変換</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%5Chat%7Bf%7D(%5Cxi)%20:=%20%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%20f(x)e%5E%7B-%202%5Cpi%20i%20x%20%5Cxi%7D%5C,dx"></p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cxi"> は任意の実数</li>
+<li>:= という記号は，左辺を右辺で定義するという意味</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Cint_%7B%7D%7B%7D"> は積分記号</li>
+<li><img src="https://latex.codecogs.com/png.latex?e%5E%7B-%202%5Cpi%20i%20x%20%5Cxi%7D"> は周波数（？）</li>
+<li><img src="https://latex.codecogs.com/png.latex?dx"> は瞬間的な変化量</li>
+</ul>
+</section>
+<section id="偏微分方程式" class="level2">
+<h2 class="anchored" data-anchor-id="偏微分方程式">偏微分方程式</h2>
+<p>以下では未知関数 ψ の変数 x に関する偏微分を ψx のように表す： <img src="https://latex.codecogs.com/png.latex?%0A%5Cpsi_x%20:=%20%7B%5Cpartial%20%5Cpsi%20%5Cover%20%5Cpartial%20x%7D,%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cpsi_%7Bxy%7D%20:=%20%7B%5Cpartial%5E2%20%5Cpsi%20%5Cover%20%5Cpartial%20y%5C,%20%5Cpartial%20x%7D.%0A"></p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>math</category>
+  <guid>https://geeknees.github.io/quarto/posts/2023-08-03Math/index.html</guid>
+  <pubDate>Wed, 02 Aug 2023 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>2進数、連立方程式</title>
   <dc:creator>geeknees </dc:creator>
