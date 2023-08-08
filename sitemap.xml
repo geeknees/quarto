@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://geeknees.github.io/quarto/index.html</loc>
-    <lastmod>2023-08-05T15:50:27.629Z</lastmod>
+    <lastmod>2023-08-08T14:30:14.234Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-13introductionGen/index.html</loc>
-    <lastmod>2023-08-05T15:50:26.238Z</lastmod>
+    <lastmod>2023-08-08T14:30:12.748Z</lastmod>
   </url>
   <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-08-03Math/index.html</loc>
-    <lastmod>2023-08-05T15:50:24.933Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-16intorductionBoxcars/index.html</loc>
-    <lastmod>2023-08-05T15:50:24.128Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-21Math/index.html</loc>
-    <lastmod>2023-08-05T15:50:23.239Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-08-05FunctionCall/index.html</loc>
-    <lastmod>2023-08-05T15:50:22.297Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-15intorductionRbProb/index.html</loc>
-    <lastmod>2023-08-05T15:50:21.668Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-30Math/index.html</loc>
-    <lastmod>2023-08-05T15:50:22.791Z</lastmod>
-  </url>
-  <url>
-    <loc>https://geeknees.github.io/quarto/posts/2023-07-23Math/index.html</loc>
-    <lastmod>2023-08-05T15:50:23.713Z</lastmod>
+    <loc>https://geeknees.github.io/quarto/posts/2023-08-08langchainrb/index.html</loc>
+    <lastmod>2023-08-08T14:30:11.384Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-15langchainrb/index.html</loc>
-    <lastmod>2023-08-05T15:50:24.525Z</lastmod>
+    <lastmod>2023-08-08T14:30:10.536Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-23Math/index.html</loc>
+    <lastmod>2023-08-08T14:30:09.743Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-30Math/index.html</loc>
+    <lastmod>2023-08-08T14:30:08.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-15intorductionRbProb/index.html</loc>
+    <lastmod>2023-08-08T14:30:07.682Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-08-05FunctionCall/index.html</loc>
+    <lastmod>2023-08-08T14:30:08.337Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-21Math/index.html</loc>
+    <lastmod>2023-08-08T14:30:09.277Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-07-16intorductionBoxcars/index.html</loc>
+    <lastmod>2023-08-08T14:30:10.144Z</lastmod>
+  </url>
+  <url>
+    <loc>https://geeknees.github.io/quarto/posts/2023-08-03Math/index.html</loc>
+    <lastmod>2023-08-08T14:30:10.967Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-14introductionDaru/index.html</loc>
-    <lastmod>2023-08-05T15:50:25.431Z</lastmod>
+    <lastmod>2023-08-08T14:30:11.895Z</lastmod>
   </url>
   <url>
     <loc>https://geeknees.github.io/quarto/posts/2023-07-17eth/index.html</loc>
-    <lastmod>2023-08-05T15:50:26.848Z</lastmod>
+    <lastmod>2023-08-08T14:30:13.370Z</lastmod>
   </url>
 </urlset>
