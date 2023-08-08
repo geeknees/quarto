@@ -1,0 +1,45 @@
+---
+jupyter: ruby
+title: "langchainrb 2"
+author: "geeknees"
+date: "2023-08-08"
+categories: [ruby, ai, code, llm]
+---
+
+```{ruby}
+require "langchain"
+
+search_tool = Langchain::Tool::GoogleSearch.new(api_key: ENV["SERPAPI_API_KEY"])
+calculator = Langchain::Tool::Calculator.new
+
+openai = Langchain::LLM::OpenAI.new(api_key: ENV["OPENAI_API_KEY"])
+
+agent = Langchain::Agent::ReActAgent.new(
+  llm: openai,
+  tools: [search_tool, calculator]
+)
+
+agent.run(question: "How many full soccer fields would be needed to cover the distance between NYC and DC in a straight line?")
+```
+
+```{ruby}
+
+ruby_code_interpreter = Langchain::Tool::RubyCodeInterpreter.new
+weather = Langchain::Tool::Weather.new(api_key: ENV["OPEN_WEATHER_API_KEY"])
+wikipedia = Langchain::Tool::Wikipedia.new
+
+agent = Langchain::Agent::ReActAgent.new(
+  llm: openai,
+  tools: [search_tool, calculator, ruby_code_interpreter, weather, wikipedia]
+)
+
+agent.run(question: "明日の東京の天気は？")
+```
+
+```{ruby}
+agent.run(question: "聖徳太子の生涯について要約して")
+```
+
+```{ruby}
+agent.run(question: "rubyでランダムな数字の配列を作ってください")
+```
