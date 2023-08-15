@@ -10,7 +10,124 @@
 <atom:link href="https://geeknees.github.io/quarto/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Mon, 07 Aug 2023 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 15 Aug 2023 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>langchainrb 3</title>
+  <dc:creator>geeknees </dc:creator>
+  <link>https://geeknees.github.io/quarto/posts/2023-08-16Langchaineth/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">require</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"langchain"</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3">eth <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Langchain</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Tool</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Eth</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.new</span>(<span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">api_key: </span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">ENV</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"INFURA_ACCESS_TOKEN"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span>)</span>
+<span id="cb1-4">openai <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Langchain</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">LLM</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">OpenAI</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.new</span>(<span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">api_key: </span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">ENV</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"OPENAI_API_KEY"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span>)</span>
+<span id="cb1-5"></span>
+<span id="cb1-6">agent <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Langchain</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Agent</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">::</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">ReActAgent</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.new</span>(</span>
+<span id="cb1-7">  <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">llm: </span>openai,</span>
+<span id="cb1-8">  <span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">tools: </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span>eth<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb1-9">)</span>
+<span id="cb1-10"></span>
+<span id="cb1-11">agent<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.run</span>(<span class="wa" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">question: </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"geeknees.eth"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>"The address 0x0ff051891debb1f6beee93b932dcae625735a2d8 is associated with the domain name geeknees.eth."</code></pre>
+</div>
+</div>
+
+
+
+ ]]></description>
+  <category>ruby</category>
+  <category>ai</category>
+  <category>code</category>
+  <category>llm</category>
+  <category>crypto</category>
+  <guid>https://geeknees.github.io/quarto/posts/2023-08-16Langchaineth/index.html</guid>
+  <pubDate>Tue, 15 Aug 2023 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>langchainrb 2</title>
   <dc:creator>geeknees </dc:creator>
