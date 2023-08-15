@@ -1,0 +1,21 @@
+---
+jupyter: ruby
+title: "langchainrb 3"
+author: "geeknees"
+date: "2023-08-16"
+categories: [ruby, ai, code, llm, crypto]
+---
+
+```{ruby}
+require "langchain"
+
+eth = Langchain::Tool::Eth.new(api_key: ENV["INFURA_ACCESS_TOKEN"])
+openai = Langchain::LLM::OpenAI.new(api_key: ENV["OPENAI_API_KEY"])
+
+agent = Langchain::Agent::ReActAgent.new(
+  llm: openai,
+  tools: [eth]
+)
+
+agent.run(question: "geeknees.eth")
+```
