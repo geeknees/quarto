@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2023-10-26ComputerScience/index.html",
       "/posts/2023-08-16Langchaineth/index.html",
       "/posts/2023-08-08langchainrb/index.html",
       "/posts/2023-08-05FunctionCall/index.html",
